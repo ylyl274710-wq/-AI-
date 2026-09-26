@@ -1,0 +1,49 @@
+{
+  "documents": 36,
+  "documents_approved": 36,
+  "documents_pending": 0,
+  "chunks": 36,
+  "chunks_orphan": 0,
+  "chunks_unembedded": 0,
+  "diseases": 30,
+  "crops": 8,
+  "by_category": [
+    {
+      "category": "disease",
+      "count": 21
+    },
+    {
+      "category": "general",
+      "count": 3
+    },
+    {
+      "category": "pest",
+      "count": 8
+    },
+    {
+      "category": "physiological",
+      "count": 1
+    },
+    {
+      "category": "safety",
+      "count": 3
+    }
+  ],
+  "by_source": [
+    {
+      "name": "全国农业技术推广服务中心",
+      "trust_level": "official",
+      "count": 9
+    },
+    {
+      "name": "中国农业科学院植物保护研究所",
+      "trust_level": "academic",
+      "count": 4
+    },
+    {
+      "name": "公开农业植保知识整理（待补充文献出处）",
+      "trust_level": "community",
+      "count": 23
+    }
+  ]
+}

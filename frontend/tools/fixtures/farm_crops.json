@@ -1,0 +1,260 @@
+[
+  {
+    "id": 12,
+    "name": "小麦",
+    "aliases": [
+      "麦子"
+    ],
+    "category": "禾本科",
+    "growth_stages": [
+      {
+        "days": 60,
+        "name": "苗期",
+        "order": 1
+      },
+      {
+        "days": 40,
+        "name": "返青拔节期",
+        "order": 2
+      },
+      {
+        "days": 20,
+        "name": "抽穗扬花期",
+        "order": 3
+      },
+      {
+        "days": 35,
+        "name": "灌浆期",
+        "order": 4
+      }
+    ],
+    "description": "条锈病与赤霉病是主要防控对象，赤霉病与抽穗期降雨强相关。"
+  },
+  {
+    "id": 14,
+    "name": "水稻",
+    "aliases": [
+      "稻子",
+      "谷子（部分方言）"
+    ],
+    "category": "禾本科",
+    "growth_stages": [
+      {
+        "days": 25,
+        "name": "秧苗期",
+        "order": 1
+      },
+      {
+        "days": 30,
+        "name": "分蘖期",
+        "order": 2
+      },
+      {
+        "days": 25,
+        "name": "孕穗抽穗期",
+        "order": 3
+      },
+      {
+        "days": 40,
+        "name": "灌浆成熟期",
+        "order": 4
+      }
+    ],
+    "description": "稻瘟病与纹枯病为主要病害，穗颈瘟与抽穗期天气关系密切。"
+  },
+  {
+    "id": 13,
+    "name": "玉米",
+    "aliases": [
+      "苞米",
+      "棒子",
+      "玉蜀黍"
+    ],
+    "category": "禾本科",
+    "growth_stages": [
+      {
+        "days": 30,
+        "name": "苗期",
+        "order": 1
+      },
+      {
+        "days": 25,
+        "name": "拔节期",
+        "order": 2
+      },
+      {
+        "days": 20,
+        "name": "抽雄吐丝期",
+        "order": 3
+      },
+      {
+        "days": 40,
+        "name": "灌浆成熟期",
+        "order": 4
+      }
+    ],
+    "description": "大斑病与草地贪夜蛾为近年重点，虫害识别需求高。"
+  },
+  {
+    "id": 9,
+    "name": "番茄",
+    "aliases": [
+      "西红柿",
+      "洋柿子",
+      "番柿"
+    ],
+    "category": "茄果类",
+    "growth_stages": [
+      {
+        "days": 25,
+        "name": "苗期",
+        "order": 1
+      },
+      {
+        "days": 30,
+        "name": "开花坐果期",
+        "order": 2
+      },
+      {
+        "days": 40,
+        "name": "结果期",
+        "order": 3
+      },
+      {
+        "days": 30,
+        "name": "采收期",
+        "order": 4
+      }
+    ],
+    "description": "设施与露地均常见，病虫害种类多，是植保咨询量最大的作物之一。"
+  },
+  {
+    "id": 16,
+    "name": "苹果",
+    "aliases": [
+      "苹果树"
+    ],
+    "category": "果树",
+    "growth_stages": [
+      {
+        "days": 25,
+        "name": "萌芽期",
+        "order": 1
+      },
+      {
+        "days": 15,
+        "name": "花期",
+        "order": 2
+      },
+      {
+        "days": 45,
+        "name": "幼果期",
+        "order": 3
+      },
+      {
+        "days": 60,
+        "name": "果实膨大期",
+        "order": 4
+      },
+      {
+        "days": 35,
+        "name": "成熟采收期",
+        "order": 5
+      }
+    ],
+    "description": "套袋前后是病害高发窗口，轮纹病与褐斑病最常见。"
+  },
+  {
+    "id": 11,
+    "name": "辣椒",
+    "aliases": [
+      "辣子",
+      "海椒",
+      "青椒"
+    ],
+    "category": "茄果类",
+    "growth_stages": [
+      {
+        "days": 30,
+        "name": "苗期",
+        "order": 1
+      },
+      {
+        "days": 20,
+        "name": "开花期",
+        "order": 2
+      },
+      {
+        "days": 45,
+        "name": "结果期",
+        "order": 3
+      }
+    ],
+    "description": "炭疽病与疫病为主要问题，缺钙引起的脐腐病常被误认为病害。"
+  },
+  {
+    "id": 15,
+    "name": "马铃薯",
+    "aliases": [
+      "土豆",
+      "洋芋",
+      "山药蛋"
+    ],
+    "category": "茄科",
+    "growth_stages": [
+      {
+        "days": 20,
+        "name": "苗期",
+        "order": 1
+      },
+      {
+        "days": 25,
+        "name": "块茎形成期",
+        "order": 2
+      },
+      {
+        "days": 30,
+        "name": "块茎膨大期",
+        "order": 3
+      },
+      {
+        "days": 25,
+        "name": "成熟期",
+        "order": 4
+      }
+    ],
+    "description": "晚疫病是毁灭性病害，连续阴雨条件下风险极高。"
+  },
+  {
+    "id": 10,
+    "name": "黄瓜",
+    "aliases": [
+      "青瓜",
+      "胡瓜"
+    ],
+    "category": "瓜类",
+    "growth_stages": [
+      {
+        "days": 20,
+        "name": "苗期",
+        "order": 1
+      },
+      {
+        "days": 20,
+        "name": "抽蔓期",
+        "order": 2
+      },
+      {
+        "days": 45,
+        "name": "开花结果期",
+        "order": 3
+      },
+      {
+        "days": 30,
+        "name": "采收期",
+        "order": 4
+      }
+    ],
+    "description": "设施栽培面积大，霜霉病与白粉病为高发问题。"
+  }
+]

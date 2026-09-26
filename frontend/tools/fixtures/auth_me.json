@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "username": "demo",
+  "display_name": "演示农户",
+  "phone": "13800000000",
+  "city": "郑州",
+  "role": "farmer",
+  "elder_mode": true,
+  "created_at": "2026-09-24T17:07:51.136241+08:00"
+}

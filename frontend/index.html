@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>农事助手 · 病虫害诊断</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232f7d4f'/><path d='M8 22c0-7 5-12 16-13 0 11-5 15-11 15-3 0-5-1-5-2z' fill='%23e8f5e9'/></svg>" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ==================== 登录 ==================== -->
+<div class="gate" id="gate" hidden>
+  <div class="gate-card">
+    <div class="brand">
+      <div class="brand-mark">农</div>
+      <div>
+        <h1>农事助手</h1>
+        <p class="muted">拍张照片，帮你看看作物出了什么问题</p>
+      </div>
+    </div>
+
+    <div class="seg" id="gateTab">
+      <button class="seg-btn is-on" data-tab="login">登录</button>
+      <button class="seg-btn" data-tab="register">注册</button>
+    </div>
+
+    <form id="gateForm" autocomplete="on">
+      <label class="field">
+        <span>用户名</span>
+        <input id="gateUser" name="username" autocomplete="username"
+               placeholder="字母、数字、下划线" required />
+      </label>
+      <label class="field">
+        <span>密码</span>
+        <input id="gatePass" name="password" type="password"
+               autocomplete="current-password" placeholder="至少 6 位" required />
+      </label>
+      <div class="field" id="gateExtra" hidden>
+        <label class="field">
+          <span>怎么称呼你</span>
+          <input id="gateName" placeholder="例如：老李" />
+        </label>
+      </div>
+      <div class="err" id="gateErr" hidden></div>
+      <button class="btn primary block lg" id="gateSubmit" type="submit">登录</button>
+    </form>
+
+    <p class="hint">
+      演示账号 <code>demo</code> / <code>demo1234</code>
+    </p>
+  </div>
+</div>
+
+<!-- ==================== 主界面 ==================== -->
+<div class="app" id="app" hidden>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">农</div>
+      <div class="brand-text">
+        <strong>农事助手</strong>
+        <span class="muted" id="brandSub">病虫害诊断 · 农事提醒</span>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="top-right">
+      <button class="btn ghost sm" id="elderBtn" title="切换大字号，术语更简单">
+        <span id="elderIcon">Aa</span>
+        <span class="hide-sm">大字</span>
+      </button>
+      <div class="who" id="who">
+        <span class="avatar" id="avatar">农</span>
+        <span class="hide-sm" id="whoName">—</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 降级提示条：后端能力不完整时必须让用户知道，不能藏在日志里 -->
+  <div class="banner" id="banner" hidden></div>
+
+  <main class="main" id="view"></main>
+
+  <nav class="tabbar" id="tabbar"></nav>
+</div>
+
+<div class="toast-wrap" id="toasts"></div>
+
+<!-- 加载顺序即依赖顺序：core 提供命名空间，pages 注册路由，app 启动 -->
+<script src="js/core.js"></script>
+<script src="js/pages/home.js"></script>
+<script src="js/pages/diagnose.js"></script>
+<script src="js/pages/chat.js"></script>
+<script src="js/pages/farm.js"></script>
+<script src="js/pages/pesticide.js"></script>
+<script src="js/pages/knowledge.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

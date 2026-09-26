@@ -1,0 +1,308 @@
+{
+  "user": {
+    "id": 1,
+    "username": "demo",
+    "display_name": "演示农户",
+    "phone": "13800000000",
+    "city": "郑州",
+    "role": "farmer",
+    "elder_mode": true,
+    "created_at": "2026-09-24T17:07:51.136241+08:00"
+  },
+  "farms": [
+    {
+      "id": 1,
+      "name": "村东头大棚",
+      "province": "河南省",
+      "city": "郑州市",
+      "district": "中牟县",
+      "total_area_mu": 3.5,
+      "remark": "两个日光温室，主要种番茄和黄瓜",
+      "fields": [
+        {
+          "id": 1,
+          "farm_id": 1,
+          "name": "1号棚",
+          "area_mu": 1.5,
+          "soil_type": "壤土",
+          "irrigation_type": "滴灌",
+          "lat": 34.721,
+          "lng": 113.981
+        },
+        {
+          "id": 2,
+          "farm_id": 1,
+          "name": "2号棚",
+          "area_mu": 2.0,
+          "soil_type": "壤土",
+          "irrigation_type": "沟灌",
+          "lat": 34.722,
+          "lng": 113.982
+        }
+      ]
+    }
+  ],
+  "current_crops": [
+    {
+      "field_id": 1,
+      "field_name": "1号棚",
+      "crop_name": "番茄",
+      "variety": "粉果",
+      "stage": "结果期",
+      "days_to_harvest": 19
+    },
+    {
+      "field_id": 2,
+      "field_name": "2号棚",
+      "crop_name": "黄瓜",
+      "variety": "津优",
+      "stage": "开花结果期",
+      "days_to_harvest": 34
+    }
+  ],
+  "pending_tasks": [
+    {
+      "id": 15,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 19,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 11,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 13,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件有点适合这个问题发生，建议多留意",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 17,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件有点适合这个问题发生，建议多留意",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 7,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 1,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "近期湿度偏高，注意检查叶背是否有霉层",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "seed",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 9,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件有点适合这个问题发生，建议多留意",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 5,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    },
+    {
+      "id": 21,
+      "title": "下地巡田，重点看叶片背面",
+      "task_type": "patrol",
+      "status": "pending",
+      "due_date": "2026-09-25",
+      "detail": "当前天气条件有点适合这个问题发生，建议多留意",
+      "priority": 1,
+      "field_id": 1,
+      "created_by_node": "remind",
+      "feedback": null,
+      "done_at": null
+    }
+  ],
+  "recent_diagnoses": [
+    {
+      "id": 143,
+      "status": "succeeded",
+      "top1": "番茄晚疫病",
+      "confidence": 0.38629397500000007,
+      "created_at": "2026-09-24T19:03:12.536610+08:00",
+      "input_text": "这两天天气怎么样，需要注意什么？"
+    },
+    {
+      "id": 142,
+      "status": "succeeded",
+      "top1": null,
+      "confidence": null,
+      "created_at": "2026-09-24T19:03:12.520964+08:00",
+      "input_text": "3 天后提醒我下地看看番茄叶子背面"
+    },
+    {
+      "id": 141,
+      "status": "succeeded",
+      "top1": "黄瓜霜霉病",
+      "confidence": 0.36756240000000007,
+      "created_at": "2026-09-24T19:03:12.435132+08:00",
+      "input_text": "黄瓜叶子发黄是什么原因？"
+    },
+    {
+      "id": 140,
+      "status": "succeeded",
+      "top1": "番茄晚疫病",
+      "confidence": 0.3807741249999999,
+      "created_at": "2026-09-24T19:03:12.325635+08:00",
+      "input_text": "番茄叶片上有褐色轮纹病斑，下部叶片先发病"
+    },
+    {
+      "id": 139,
+      "status": "succeeded",
+      "top1": "番茄黄化曲叶病毒病",
+      "confidence": 0.38181505000000004,
+      "created_at": "2026-09-24T19:03:12.214281+08:00",
+      "input_text": "番茄叶子皱缩卷曲，叶片变小发黄，植株矮化"
+    }
+  ],
+  "weather": {
+    "record_date": "2026-09-24",
+    "temp_avg": 24.0,
+    "temp_max": 30.0,
+    "temp_min": 18.0,
+    "humidity_avg": 85.0,
+    "humidity_max": 86.0,
+    "rainfall_hours": 7.6,
+    "wind_level": 3.1,
+    "provider": "mock",
+    "is_mock": true,
+    "caveat": "当前天气为演示用模拟数据，接入真实气象接口后自动替换"
+  },
+  "risks": [
+    {
+      "risk_level": "high",
+      "score": 1.0,
+      "reasons": [
+        "满足：平均气温 24.0℃（适宜区间 18~24℃）",
+        "满足：最高湿度 86%（发病需 ≥85%）",
+        "满足：累计降雨 7.6 小时（需 ≥4 小时）",
+        "满足：当前处于结果期，属于易感阶段"
+      ],
+      "advice": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "disease_name": "番茄晚疫病"
+    },
+    {
+      "risk_level": "high",
+      "score": 1.0,
+      "reasons": [
+        "满足：平均气温 24.0℃（适宜区间 22~30℃）",
+        "满足：最高湿度 86%（发病需 ≥50%）",
+        "满足：当前处于结果期，属于易感阶段"
+      ],
+      "advice": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "disease_name": "番茄白粉虱"
+    },
+    {
+      "risk_level": "high",
+      "score": 1.0,
+      "reasons": [
+        "满足：平均气温 24.0℃（适宜区间 20~25℃）",
+        "满足：最高湿度 86%（发病需 ≥60%）"
+      ],
+      "advice": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "disease_name": "黄瓜白粉病"
+    },
+    {
+      "risk_level": "high",
+      "score": 1.0,
+      "reasons": [
+        "满足：平均气温 24.0℃（适宜区间 23~30℃）",
+        "满足：最高湿度 86%（发病需 ≥40%）",
+        "满足：当前处于结果期，属于易感阶段"
+      ],
+      "advice": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "disease_name": "辣椒蓟马"
+    },
+    {
+      "risk_level": "high",
+      "score": 0.767,
+      "reasons": [
+        "不满足：平均气温 24.0℃（适宜区间 25~30℃）",
+        "满足：最高湿度 86%（发病需 ≥80%）",
+        "满足：累计降雨 7.6 小时（需 ≥2 小时）",
+        "满足：当前处于结果期，属于易感阶段"
+      ],
+      "advice": "当前天气条件比较适合这个问题发生，建议尽快下地看看",
+      "disease_name": "番茄早疫病"
+    }
+  ]
+}

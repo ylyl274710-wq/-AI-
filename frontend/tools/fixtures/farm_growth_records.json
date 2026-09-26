@@ -1,0 +1,24 @@
+[
+  {
+    "id": 2,
+    "field_id": 2,
+    "crop_id": 10,
+    "variety": "津优",
+    "stage": "开花结果期",
+    "sowing_date": "2026-07-31",
+    "stage_start_date": "2026-09-14",
+    "expected_harvest_date": "2026-10-29",
+    "is_current": true
+  },
+  {
+    "id": 1,
+    "field_id": 1,
+    "crop_id": 9,
+    "variety": "粉果",
+    "stage": "结果期",
+    "sowing_date": "2026-06-21",
+    "stage_start_date": "2026-08-30",
+    "expected_harvest_date": "2026-10-14",
+    "is_current": true
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "app": "农业病虫害智能诊断与农事决策 Agent",
+  "env": "dev",
+  "database": "up",
+  "redis": "up",
+  "minio": "up",
+  "storage": "local",
+  "llm_enabled": false,
+  "vision_enabled": false,
+  "embedding_mode": "local",
+  "embedding_dim": 512,
+  "knowledge_docs": 36,
+  "knowledge_chunks": 36,
+  "version": "0.1.0"
+}

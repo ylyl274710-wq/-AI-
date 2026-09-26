@@ -1,0 +1,24 @@
+[
+  {
+    "id": 2,
+    "field_id": 1,
+    "product_name_raw": "吡唑醚菌酯乳油",
+    "active_ingredient_name": "吡唑醚菌酯",
+    "resistance_group": "FRAC 11",
+    "used_at": "2026-09-21",
+    "record_source": "manual",
+    "confirmed": true,
+    "note": "复配使用"
+  },
+  {
+    "id": 1,
+    "field_id": 1,
+    "product_name_raw": "吡唑醚菌酯乳油",
+    "active_ingredient_name": "吡唑醚菌酯",
+    "resistance_group": "FRAC 11",
+    "used_at": "2026-09-15",
+    "record_source": "manual",
+    "confirmed": true,
+    "note": "防治早疫病"
+  }
+]

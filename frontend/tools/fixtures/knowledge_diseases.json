@@ -1,0 +1,282 @@
+[
+  {
+    "id": 17,
+    "standard_name": "小麦条锈病",
+    "category": "disease",
+    "crop_names": [
+      "小麦"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 18,
+    "standard_name": "小麦蚜虫",
+    "category": "pest",
+    "crop_names": [
+      "小麦"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 16,
+    "standard_name": "小麦赤霉病",
+    "category": "disease",
+    "crop_names": [
+      "小麦"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 22,
+    "standard_name": "水稻稻瘟病",
+    "category": "disease",
+    "crop_names": [
+      "水稻"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 24,
+    "standard_name": "水稻稻飞虱",
+    "category": "pest",
+    "crop_names": [
+      "水稻"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 23,
+    "standard_name": "水稻纹枯病",
+    "category": "disease",
+    "crop_names": [
+      "水稻"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 19,
+    "standard_name": "玉米大斑病",
+    "category": "disease",
+    "crop_names": [
+      "玉米"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 20,
+    "standard_name": "玉米草地贪夜蛾",
+    "category": "pest",
+    "crop_names": [
+      "玉米"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 21,
+    "standard_name": "玉米螟",
+    "category": "pest",
+    "crop_names": [
+      "玉米"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 5,
+    "standard_name": "番茄叶霉病",
+    "category": "disease",
+    "crop_names": [
+      "番茄"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 2,
+    "standard_name": "番茄早疫病",
+    "category": "disease",
+    "crop_names": [
+      "番茄"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 1,
+    "standard_name": "番茄晚疫病",
+    "category": "disease",
+    "crop_names": [
+      "番茄"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 3,
+    "standard_name": "番茄灰霉病",
+    "category": "disease",
+    "crop_names": [
+      "番茄"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 6,
+    "standard_name": "番茄白粉虱",
+    "category": "pest",
+    "crop_names": [
+      "番茄",
+      "黄瓜",
+      "辣椒"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 4,
+    "standard_name": "番茄黄化曲叶病毒病",
+    "category": "disease",
+    "crop_names": [
+      "番茄"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 30,
+    "standard_name": "苹果红蜘蛛",
+    "category": "pest",
+    "crop_names": [
+      "苹果"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 29,
+    "standard_name": "苹果腐烂病",
+    "category": "disease",
+    "crop_names": [
+      "苹果"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 28,
+    "standard_name": "苹果褐斑病",
+    "category": "disease",
+    "crop_names": [
+      "苹果"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 27,
+    "standard_name": "苹果轮纹病",
+    "category": "disease",
+    "crop_names": [
+      "苹果"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 12,
+    "standard_name": "辣椒炭疽病",
+    "category": "disease",
+    "crop_names": [
+      "辣椒"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 14,
+    "standard_name": "辣椒疫病",
+    "category": "disease",
+    "crop_names": [
+      "辣椒"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 13,
+    "standard_name": "辣椒脐腐病",
+    "category": "physiological",
+    "crop_names": [
+      "辣椒",
+      "番茄"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 15,
+    "standard_name": "辣椒蓟马",
+    "category": "pest",
+    "crop_names": [
+      "辣椒",
+      "黄瓜",
+      "番茄"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 26,
+    "standard_name": "马铃薯早疫病",
+    "category": "disease",
+    "crop_names": [
+      "马铃薯"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 25,
+    "standard_name": "马铃薯晚疫病",
+    "category": "disease",
+    "crop_names": [
+      "马铃薯"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 9,
+    "standard_name": "黄瓜枯萎病",
+    "category": "disease",
+    "crop_names": [
+      "黄瓜"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 8,
+    "standard_name": "黄瓜白粉病",
+    "category": "disease",
+    "crop_names": [
+      "黄瓜",
+      "番茄",
+      "辣椒"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 11,
+    "standard_name": "黄瓜蚜虫",
+    "category": "pest",
+    "crop_names": [
+      "黄瓜",
+      "辣椒",
+      "小麦",
+      "苹果"
+    ],
+    "severity": "medium"
+  },
+  {
+    "id": 7,
+    "standard_name": "黄瓜霜霉病",
+    "category": "disease",
+    "crop_names": [
+      "黄瓜"
+    ],
+    "severity": "high"
+  },
+  {
+    "id": 10,
+    "standard_name": "黄瓜靶斑病",
+    "category": "disease",
+    "crop_names": [
+      "黄瓜"
+    ],
+    "severity": "medium"
+  }
+]

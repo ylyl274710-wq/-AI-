@@ -1,0 +1,27 @@
+{
+  "id": 17,
+  "standard_name": "小麦条锈病",
+  "aliases": [
+    "黄疸病",
+    "条锈"
+  ],
+  "category": "disease",
+  "crop_names": [
+    "小麦"
+  ],
+  "pathogen": "条形柄锈菌（Puccinia striiformis）",
+  "symptoms": "叶片上出现鲜黄色小疱，沿叶脉排列成虚线状（条状），这是与叶锈病、秆锈病区分的关键；用手摸会有黄色粉末沾手。后期病部表皮破裂，叶片失水枯黄，远看一片黄。",
+  "conditions": {
+    "temp_max": 16,
+    "temp_min": 9,
+    "humidity_min": 80
+  },
+  "stage_susceptibility": {
+    "苗期": "中",
+    "灌浆期": "中",
+    "抽穗扬花期": "高",
+    "返青拔节期": "高"
+  },
+  "control_advice": "发现单片病叶就要立即防治，条锈病传播极快，有「见点打面」的说法。选用抗病品种，及时用药控制。",
+  "severity": "high"
+}

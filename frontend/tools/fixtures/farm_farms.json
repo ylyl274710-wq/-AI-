@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "村东头大棚",
+    "province": "河南省",
+    "city": "郑州市",
+    "district": "中牟县",
+    "total_area_mu": 3.5,
+    "remark": "两个日光温室，主要种番茄和黄瓜",
+    "fields": [
+      {
+        "id": 1,
+        "farm_id": 1,
+        "name": "1号棚",
+        "area_mu": 1.5,
+        "soil_type": "壤土",
+        "irrigation_type": "滴灌",
+        "lat": 34.721,
+        "lng": 113.981
+      },
+      {
+        "id": 2,
+        "farm_id": 1,
+        "name": "2号棚",
+        "area_mu": 2.0,
+        "soil_type": "壤土",
+        "irrigation_type": "沟灌",
+        "lat": 34.722,
+        "lng": 113.982
+      }
+    ]
+  }
+]

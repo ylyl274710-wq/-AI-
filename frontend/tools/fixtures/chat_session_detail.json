@@ -1,0 +1,1165 @@
+[
+  {
+    "id": 1,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "黄瓜叶子发黄是什么原因？",
+    "intent": "consult",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 16,
+    "created_at": "2026-09-24T17:33:22.953648+08:00"
+  },
+  {
+    "id": 2,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n你问的情况，知识库里最相关的是「黄瓜霜霉病」。 知识库里的描述是：黄瓜霜霉病俗称跑马干，发展速度极快，是黄瓜上最需要警惕的病害。识别要点：叶片正面病斑呈多角形、受叶脉限制，颜色黄褐；湿度大时叶背对应位置有灰黑色霉层。发病适温 16~24℃、湿度 85% 以上，叶面长时间结露时最容易流行。防治：核心是降湿和减少结露，可采用高温闷棚的生态防治手段；发病初期及时用药，喷药要打到叶背，并轮换不同作用机制的药剂。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n3. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 黄瓜霜霉病（公开农业植保知识整理（待补充文献出处））",
+    "intent": "consult",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 187
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 33342
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 234
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 187
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "黄瓜霜霉病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 16,
+    "created_at": "2026-09-24T17:33:22.953648+08:00"
+  },
+  {
+    "id": 130,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "番茄叶子背面有一层白霜一样的东西，叶子开始发黄",
+    "intent": "diagnosis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 130,
+    "created_at": "2026-09-24T19:01:16.745977+08:00"
+  },
+  {
+    "id": 131,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n（说明：你这次只用文字描述了症状，没有上传照片，下面的判断是基于文字和知识库做的，仅供参考。）\n你种的番茄疑似出现了「番茄黄化曲叶病毒病」。 知识库里的描述是：番茄黄化曲叶病毒病由烟粉虱传播，属于病毒性病害，一旦发病没有可以治愈的药剂，只能拔除。识别要点：新叶变小、边缘上卷、叶脉间黄化，植株矮化丛生，几乎不结果。这与缺素引起的黄化不同 —— 病毒病先从新叶开始，缺素多从老叶开始。防控关键在防虫：育苗期用防虫网隔离，生长期及时防治烟粉虱，发现病株立即拔除并带出田外。选用抗病品种是最经济的手段。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n3. 天气方面：当前天气条件有点适合这个问题发生，建议多留意\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 番茄黄化曲叶病毒病（中国农业科学院植物保护研究所）\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "diagnosis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 187
+      },
+      {
+        "node": "diagnose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 39515
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 422
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 250
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 187
+      }
+    ],
+    "references": [
+      {
+        "url": "http://www.ippcaas.cn/",
+        "index": 1,
+        "title": "番茄黄化曲叶病毒病",
+        "source": "中国农业科学院植物保护研究所"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 130,
+    "created_at": "2026-09-24T19:01:16.745977+08:00"
+  },
+  {
+    "id": 132,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "大棚番茄叶子背面出现白色粉末状霉层，是不是白粉病？",
+    "intent": "diagnosis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 131,
+    "created_at": "2026-09-24T19:01:57.781950+08:00"
+  },
+  {
+    "id": 133,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n（说明：你这次只用文字描述了症状，没有上传照片，下面的判断是基于文字和知识库做的，仅供参考。）\n你种的番茄疑似出现了「白粉病」。 知识库里的描述是：黄瓜白粉病的识别非常直观：叶片上出现白色近圆形粉斑，扩大后连成片，像撒了一层面粉。发病适温 20~25℃，相对湿度 60% 左右即可发生 —— 注意它并不需要高湿，这是与霜霉病的重要区别。防治：通风透光、避免偏施氮肥导致植株徒长；发病初期用药，白粉病菌对杀菌剂容易产生抗药性，必须轮换不同作用机制的药剂。\n\n【现在做什么】\n1. 虽然查到有对应的登记药剂，但因为还没确诊，我先不报具体药名 —— 药用错了比不用更麻烦。\n2. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n3. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n4. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 黄瓜白粉病（公开农业植保知识整理（待补充文献出处））\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "diagnosis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "diagnose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 92
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 16
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "黄瓜白粉病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 131,
+    "created_at": "2026-09-24T19:01:57.781950+08:00"
+  },
+  {
+    "id": 134,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "番茄叶子皱缩卷曲，叶片变小发黄，植株矮化",
+    "intent": "diagnosis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 132,
+    "created_at": "2026-09-24T19:01:57.912805+08:00"
+  },
+  {
+    "id": 135,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n（说明：你这次只用文字描述了症状，没有上传照片，下面的判断是基于文字和知识库做的，仅供参考。）\n你种的番茄疑似出现了「番茄黄化曲叶病毒病」。 知识库里的描述是：番茄黄化曲叶病毒病由烟粉虱传播，属于病毒性病害，一旦发病没有可以治愈的药剂，只能拔除。识别要点：新叶变小、边缘上卷、叶脉间黄化，植株矮化丛生，几乎不结果。这与缺素引起的黄化不同 —— 病毒病先从新叶开始，缺素多从老叶开始。防控关键在防虫：育苗期用防虫网隔离，生长期及时防治烟粉虱，发现病株立即拔除并带出田外。选用抗病品种是最经济的手段。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n3. 天气方面：当前天气条件有点适合这个问题发生，建议多留意\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 番茄黄化曲叶病毒病（中国农业科学院植物保护研究所）\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "diagnosis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "diagnose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 92
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 16
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [
+      {
+        "url": "http://www.ippcaas.cn/",
+        "index": 1,
+        "title": "番茄黄化曲叶病毒病",
+        "source": "中国农业科学院植物保护研究所"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 132,
+    "created_at": "2026-09-24T19:01:57.912805+08:00"
+  },
+  {
+    "id": 136,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "番茄叶片上有褐色轮纹病斑，下部叶片先发病",
+    "intent": "diagnosis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 133,
+    "created_at": "2026-09-24T19:01:58.033773+08:00"
+  },
+  {
+    "id": 137,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n（说明：你这次只用文字描述了症状，没有上传照片，下面的判断是基于文字和知识库做的，仅供参考。）\n你种的番茄疑似出现了「番茄晚疫病」。 知识库里的描述是：番茄晚疫病由致病疫霉引起，是番茄生产上的毁灭性病害。识别要点：叶片病斑呈暗绿色水浸状，扩展快，边缘不清晰，湿度大时叶背可见白色霉层；茎部出现黑褐色条斑；果实上形成油浸状褐色硬斑。发病条件：平均气温 18~24℃、相对湿度 85% 以上、连续阴雨 4 小时以上时极易流行，通常雨后 2~3 天开始显症。防治思路：以控湿为核心。及时摘除中心病株并带出田外销毁，加强通风排湿，避免傍晚浇水，与非茄科作物轮作。\n\n【现在做什么】\n1. 虽然查到有对应的登记药剂，但因为还没确诊，我先不报具体药名 —— 药用错了比不用更麻烦。\n2. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n3. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n4. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 番茄晚疫病（公开农业植保知识整理（待补充文献出处））\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "diagnosis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "diagnose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 92
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 16
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "番茄晚疫病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 133,
+    "created_at": "2026-09-24T19:01:58.033773+08:00"
+  },
+  {
+    "id": 138,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "黄瓜叶子发黄是什么原因？",
+    "intent": "consult",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 134,
+    "created_at": "2026-09-24T19:01:58.155137+08:00"
+  },
+  {
+    "id": 139,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n你问的情况，知识库里最相关的是「黄瓜霜霉病」。 知识库里的描述是：黄瓜霜霉病俗称跑马干，发展速度极快，是黄瓜上最需要警惕的病害。识别要点：叶片正面病斑呈多角形、受叶脉限制，颜色黄褐；湿度大时叶背对应位置有灰黑色霉层。发病适温 16~24℃、湿度 85% 以上，叶面长时间结露时最容易流行。防治：核心是降湿和减少结露，可采用高温闷棚的生态防治手段；发病初期及时用药，喷药要打到叶背，并轮换不同作用机制的药剂。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n3. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 黄瓜霜霉病（公开农业植保知识整理（待补充文献出处））",
+    "intent": "consult",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 77
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "黄瓜霜霉病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 134,
+    "created_at": "2026-09-24T19:01:58.155137+08:00"
+  },
+  {
+    "id": 140,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "3 天后提醒我下地看看番茄叶子背面",
+    "intent": "task",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 135,
+    "created_at": "2026-09-24T19:01:58.245782+08:00"
+  },
+  {
+    "id": 141,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n从你提供的信息里，我还没法确定具体是什么问题。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。",
+    "intent": "task",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 15
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 15
+      }
+    ],
+    "references": [],
+    "degraded": true,
+    "diagnosis_id": 135,
+    "created_at": "2026-09-24T19:01:58.245782+08:00"
+  },
+  {
+    "id": 142,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "这两天天气怎么样，需要注意什么？",
+    "intent": "farm_analysis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 136,
+    "created_at": "2026-09-24T19:01:58.263220+08:00"
+  },
+  {
+    "id": 143,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n你问的情况，知识库里最相关的是「番茄晚疫病」。 知识库里的描述是：番茄晚疫病由致病疫霉引起，是番茄生产上的毁灭性病害。识别要点：叶片病斑呈暗绿色水浸状，扩展快，边缘不清晰，湿度大时叶背可见白色霉层；茎部出现黑褐色条斑；果实上形成油浸状褐色硬斑。发病条件：平均气温 18~24℃、相对湿度 85% 以上、连续阴雨 4 小时以上时极易流行，通常雨后 2~3 天开始显症。防治思路：以控湿为核心。及时摘除中心病株并带出田外销毁，加强通风排湿，避免傍晚浇水，与非茄科作物轮作。\n\n【现在做什么】\n1. 虽然查到有对应的登记药剂，但因为还没确诊，我先不报具体药名 —— 药用错了比不用更麻烦。\n2. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n3. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n4. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 番茄晚疫病（公开农业植保知识整理（待补充文献出处））\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "farm_analysis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 16
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 77
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 15
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 16
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "番茄晚疫病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 136,
+    "created_at": "2026-09-24T19:01:58.263220+08:00"
+  },
+  {
+    "id": 144,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "番茄叶子背面有一层白霜一样的东西，叶子开始发黄",
+    "intent": "diagnosis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 137,
+    "created_at": "2026-09-24T19:02:35.517257+08:00"
+  },
+  {
+    "id": 145,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n（说明：你这次只用文字描述了症状，没有上传照片，下面的判断是基于文字和知识库做的，仅供参考。）\n你种的番茄疑似出现了「番茄黄化曲叶病毒病」。 知识库里的描述是：番茄黄化曲叶病毒病由烟粉虱传播，属于病毒性病害，一旦发病没有可以治愈的药剂，只能拔除。识别要点：新叶变小、边缘上卷、叶脉间黄化，植株矮化丛生，几乎不结果。这与缺素引起的黄化不同 —— 病毒病先从新叶开始，缺素多从老叶开始。防控关键在防虫：育苗期用防虫网隔离，生长期及时防治烟粉虱，发现病株立即拔除并带出田外。选用抗病品种是最经济的手段。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n3. 天气方面：当前天气条件有点适合这个问题发生，建议多留意\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 番茄黄化曲叶病毒病（中国农业科学院植物保护研究所）\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "diagnosis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 187
+      },
+      {
+        "node": "diagnose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 35015
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 422
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 281
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 187
+      }
+    ],
+    "references": [
+      {
+        "url": "http://www.ippcaas.cn/",
+        "index": 1,
+        "title": "番茄黄化曲叶病毒病",
+        "source": "中国农业科学院植物保护研究所"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 137,
+    "created_at": "2026-09-24T19:02:35.517257+08:00"
+  },
+  {
+    "id": 146,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "大棚番茄叶子背面出现白色粉末状霉层，是不是白粉病？",
+    "intent": "diagnosis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 138,
+    "created_at": "2026-09-24T19:03:12.084074+08:00"
+  },
+  {
+    "id": 147,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n（说明：你这次只用文字描述了症状，没有上传照片，下面的判断是基于文字和知识库做的，仅供参考。）\n你种的番茄疑似出现了「白粉病」。 知识库里的描述是：黄瓜白粉病的识别非常直观：叶片上出现白色近圆形粉斑，扩大后连成片，像撒了一层面粉。发病适温 20~25℃，相对湿度 60% 左右即可发生 —— 注意它并不需要高湿，这是与霜霉病的重要区别。防治：通风透光、避免偏施氮肥导致植株徒长；发病初期用药，白粉病菌对杀菌剂容易产生抗药性，必须轮换不同作用机制的药剂。\n\n【现在做什么】\n1. 虽然查到有对应的登记药剂，但因为还没确诊，我先不报具体药名 —— 药用错了比不用更麻烦。\n2. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n3. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n4. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 黄瓜白粉病（公开农业植保知识整理（待补充文献出处））\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "diagnosis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "diagnose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 92
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 16
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "黄瓜白粉病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 138,
+    "created_at": "2026-09-24T19:03:12.084074+08:00"
+  },
+  {
+    "id": 148,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "番茄叶子皱缩卷曲，叶片变小发黄，植株矮化",
+    "intent": "diagnosis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 139,
+    "created_at": "2026-09-24T19:03:12.214281+08:00"
+  },
+  {
+    "id": 149,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n（说明：你这次只用文字描述了症状，没有上传照片，下面的判断是基于文字和知识库做的，仅供参考。）\n你种的番茄疑似出现了「番茄黄化曲叶病毒病」。 知识库里的描述是：番茄黄化曲叶病毒病由烟粉虱传播，属于病毒性病害，一旦发病没有可以治愈的药剂，只能拔除。识别要点：新叶变小、边缘上卷、叶脉间黄化，植株矮化丛生，几乎不结果。这与缺素引起的黄化不同 —— 病毒病先从新叶开始，缺素多从老叶开始。防控关键在防虫：育苗期用防虫网隔离，生长期及时防治烟粉虱，发现病株立即拔除并带出田外。选用抗病品种是最经济的手段。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n3. 天气方面：当前天气条件有点适合这个问题发生，建议多留意\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 番茄黄化曲叶病毒病（中国农业科学院植物保护研究所）\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "diagnosis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 15
+      },
+      {
+        "node": "diagnose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 77
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 15
+      }
+    ],
+    "references": [
+      {
+        "url": "http://www.ippcaas.cn/",
+        "index": 1,
+        "title": "番茄黄化曲叶病毒病",
+        "source": "中国农业科学院植物保护研究所"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 139,
+    "created_at": "2026-09-24T19:03:12.214281+08:00"
+  },
+  {
+    "id": 150,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "番茄叶片上有褐色轮纹病斑，下部叶片先发病",
+    "intent": "diagnosis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 140,
+    "created_at": "2026-09-24T19:03:12.325635+08:00"
+  },
+  {
+    "id": 151,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n（说明：你这次只用文字描述了症状，没有上传照片，下面的判断是基于文字和知识库做的，仅供参考。）\n你种的番茄疑似出现了「番茄晚疫病」。 知识库里的描述是：番茄晚疫病由致病疫霉引起，是番茄生产上的毁灭性病害。识别要点：叶片病斑呈暗绿色水浸状，扩展快，边缘不清晰，湿度大时叶背可见白色霉层；茎部出现黑褐色条斑；果实上形成油浸状褐色硬斑。发病条件：平均气温 18~24℃、相对湿度 85% 以上、连续阴雨 4 小时以上时极易流行，通常雨后 2~3 天开始显症。防治思路：以控湿为核心。及时摘除中心病株并带出田外销毁，加强通风排湿，避免傍晚浇水，与非茄科作物轮作。\n\n【现在做什么】\n1. 虽然查到有对应的登记药剂，但因为还没确诊，我先不报具体药名 —— 药用错了比不用更麻烦。\n2. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n3. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n4. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 番茄晚疫病（公开农业植保知识整理（待补充文献出处））\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "diagnosis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "diagnose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 77
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 15
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "番茄晚疫病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 140,
+    "created_at": "2026-09-24T19:03:12.325635+08:00"
+  },
+  {
+    "id": 152,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "黄瓜叶子发黄是什么原因？",
+    "intent": "consult",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 141,
+    "created_at": "2026-09-24T19:03:12.435132+08:00"
+  },
+  {
+    "id": 153,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n你问的情况，知识库里最相关的是「黄瓜霜霉病」。 知识库里的描述是：黄瓜霜霉病俗称跑马干，发展速度极快，是黄瓜上最需要警惕的病害。识别要点：叶片正面病斑呈多角形、受叶脉限制，颜色黄褐；湿度大时叶背对应位置有灰黑色霉层。发病适温 16~24℃、湿度 85% 以上，叶面长时间结露时最容易流行。防治：核心是降湿和减少结露，可采用高温闷棚的生态防治手段；发病初期及时用药，喷药要打到叶背，并轮换不同作用机制的药剂。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n3. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 黄瓜霜霉病（公开农业植保知识整理（待补充文献出处））",
+    "intent": "consult",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 61
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 16
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "黄瓜霜霉病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 141,
+    "created_at": "2026-09-24T19:03:12.435132+08:00"
+  },
+  {
+    "id": 154,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "3 天后提醒我下地看看番茄叶子背面",
+    "intent": "task",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 142,
+    "created_at": "2026-09-24T19:03:12.520964+08:00"
+  },
+  {
+    "id": 155,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n从你提供的信息里，我还没法确定具体是什么问题。\n\n【现在做什么】\n1. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n2. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。",
+    "intent": "task",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [],
+    "degraded": true,
+    "diagnosis_id": 142,
+    "created_at": "2026-09-24T19:03:12.520964+08:00"
+  },
+  {
+    "id": 156,
+    "session_id": "smoke",
+    "role": "user",
+    "content": "这两天天气怎么样，需要注意什么？",
+    "intent": "farm_analysis",
+    "trace": [],
+    "tool_calls": [],
+    "references": [],
+    "degraded": false,
+    "diagnosis_id": 143,
+    "created_at": "2026-09-24T19:03:12.536610+08:00"
+  },
+  {
+    "id": 157,
+    "session_id": "smoke",
+    "role": "assistant",
+    "content": "【发现什么】\n你问的情况，知识库里最相关的是「番茄晚疫病」。 知识库里的描述是：番茄晚疫病由致病疫霉引起，是番茄生产上的毁灭性病害。识别要点：叶片病斑呈暗绿色水浸状，扩展快，边缘不清晰，湿度大时叶背可见白色霉层；茎部出现黑褐色条斑；果实上形成油浸状褐色硬斑。发病条件：平均气温 18~24℃、相对湿度 85% 以上、连续阴雨 4 小时以上时极易流行，通常雨后 2~3 天开始显症。防治思路：以控湿为核心。及时摘除中心病株并带出田外销毁，加强通风排湿，避免傍晚浇水，与非茄科作物轮作。\n\n【现在做什么】\n1. 虽然查到有对应的登记药剂，但因为还没确诊，我先不报具体药名 —— 药用错了比不用更麻烦。\n2. 暂时不能给你推荐具体的农药，建议先做非用药处理：摘除病叶、改善通风、控制浇水。\n3. 需要用药的话，请带着照片咨询当地植保部门，或者把产品标签拿给他们看。\n4. 天气方面：当前天气条件比较适合这个问题发生，建议尽快下地看看\n\n【什么时候再看】\n当前处于结果期，建议 3~5 天后复查一次，如果情况变差就尽快找当地农技员。\n\n参考来源：\n[1] 番茄晚疫病（公开农业植保知识整理（待补充文献出处））\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。",
+    "intent": "farm_analysis",
+    "trace": [
+      {
+        "node": "intent",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "context",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      },
+      {
+        "node": "retrieve",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 77
+      },
+      {
+        "node": "rule_check",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 15
+      },
+      {
+        "node": "compose",
+        "tools": [],
+        "detail": "",
+        "status": "ok",
+        "elapsed_ms": 0
+      }
+    ],
+    "tool_calls": [
+      {
+        "ok": true,
+        "node": "context",
+        "tool": "load_farm_context",
+        "attempt": 1,
+        "high_risk": false,
+        "elapsed_ms": 0
+      }
+    ],
+    "references": [
+      {
+        "url": "",
+        "index": 1,
+        "title": "番茄晚疫病",
+        "source": "公开农业植保知识整理（待补充文献出处）"
+      }
+    ],
+    "degraded": true,
+    "diagnosis_id": 143,
+    "created_at": "2026-09-24T19:03:12.536610+08:00"
+  }
+]
