@@ -1,0 +1,39 @@
+# 便携基础设施（二进制，不入库）
+_infra/pgsql/
+_infra/redis/
+_infra/minio/
+_infra/pgvector/
+_infra/data/
+_infra/_downloads/
+_infra/logs/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 环境变量（含 API Key，绝不入库）
+.env
+.env.local
+.env.*.local
+
+# 前端
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# 运行时产物
+storage/
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+# 本地 Embedding 模型（约 92MB，用 scripts/fetch_embedding_model.py 重新下载）
+models/BAAI__bge-small-zh-v1.5/
+# 分类器模型训练产物（scripts/train_pv_classifier.py 产出后手动放入）
+models/*.onnx
