@@ -30,7 +30,8 @@ from app.seed.knowledge_data_ext import (DISEASES_EXT, GENERAL_KNOWLEDGE_EXT,
 
 # 原始条目 + 扩充条目（knowledge_data_ext.py，构建器生成、conditions 单一事实来源）
 ALL_DISEASES = DISEASES + DISEASES_EXT
-from app.seed.pesticide_data import INGREDIENTS, PRODUCTS
+from app.seed.pesticide_data import (INGREDIENTS, PRODUCTS,
+                                        REGISTRATION_UPDATES)
 
 logging.basicConfig(level=logging.INFO,
                     format="%(levelname)s %(name)s: %(message)s")
@@ -161,7 +162,9 @@ def seed_pesticides(db: Session) -> tuple[int, int]:
 
     n = 0
     upgraded = 0
-    for item in PRODUCTS:
+    # PRODUCTS 是完整条目（新增用）；REGISTRATION_UPDATES 是部分条目
+    # （只声明要补的维度），与已存在产品按集合并集——只增不减
+    for item in PRODUCTS + REGISTRATION_UPDATES:
         obj = db.scalar(select(PesticideProduct).where(
                 PesticideProduct.product_name == item["product_name"]))
         if obj is not None:
