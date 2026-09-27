@@ -160,15 +160,25 @@ def seed_pesticides(db: Session) -> tuple[int, int]:
     db.flush()
 
     n = 0
+    upgraded = 0
     for item in PRODUCTS:
-        if db.scalar(select(PesticideProduct).where(
-                PesticideProduct.product_name == item["product_name"])):
+        obj = db.scalar(select(PesticideProduct).where(
+                PesticideProduct.product_name == item["product_name"]))
+        if obj is not None:
+            # 登记信息升级：作物/防治对象/阶段三个列表取并集（只增不减——
+            # 登记范围只会变宽，收窄必须走人工复核，不能靠种子数据静默覆盖）
+            for field in ("registered_crops", "target_pests", "applicable_stages"):
+                old_set = set(getattr(obj, field) or [])
+                merged = sorted(old_set | set(item.get(field) or []))
+                if set(merged) != old_set:   # ★ 按集合比较：顺序重排不算升级
+                    setattr(obj, field, merged)
+                    upgraded += 1
             continue
         db.add(PesticideProduct(**item, version=1, status="active"))
         n += 1
     db.flush()
-    logger.info("有效成分: %d 条；农药产品: 新增 %d 条",
-                len(INGREDIENTS), n)
+    logger.info("有效成分: %d 条；农药产品: 新增 %d 条，登记信息升级 %d 处",
+                len(INGREDIENTS), n, upgraded)
     return len(INGREDIENTS), n
 
 
