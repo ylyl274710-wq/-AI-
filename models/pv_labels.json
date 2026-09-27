@@ -4,11 +4,11 @@
   "caveat": "_pv 类目映射来自图像数据集的病害学名与知识库条目的语义对照，属人工映射，正式使用前应逐条由植保人员复核。",
   "labels": {
     "Apple___Apple_scab": {
-      "standard_name": null,
+      "standard_name": "苹果黑星病",
       "zh": "苹果黑星病"
     },
     "Apple___Black_rot": {
-      "standard_name": null,
+      "standard_name": "苹果黑腐病",
       "zh": "苹果黑腐病"
     },
     "Apple___Cedar_apple_rust": {

@@ -117,7 +117,8 @@ def compute_confidence(*, top1_name: str | None,
                        retrieval: RetrievalResult,
                        image_top1_names: list[str] | None = None,
                        shot_types: list[str] | None = None,
-                       evidence: dict[str, float] | None = None) -> ConfidenceBreakdown:
+                       evidence: dict[str, float] | None = None,
+                       classifier_top: dict | None = None) -> ConfidenceBreakdown:
     """计算置信度并给出闸门判定。"""
     bd = ConfidenceBreakdown(weights={
         "margin": settings.confidence_w_margin,
@@ -192,6 +193,33 @@ def compute_confidence(*, top1_name: str | None,
         bd.reasons.append(
             f"支持「{top1_name}」的证据强度仅为理论最高值的 "
             f"{bd.coverage:.0%}，证据偏薄")
+
+    # ---- 分类器通道（可选）：本地分类器的 top1 是可复现概率，独立构成证据 ----
+    # 设计：把它当成「一个不会说谎的额外观察者」参与一致性投票；
+    # 同时以其内部区分度（top1 与次选的差）托底 margin、以概率托底 coverage。
+    # 三种情形：
+    #   强确认（与结论同名且区分明显）→ 一致性与证据强度同时抬升；
+    #   强分歧（高置信判定为别的类）  → 压低一致性——两通道打架就该更保守；
+    #   无声（低概率/未映射）         → 不改变任何分量。
+    if classifier_top and classifier_top.get("name") == top1_name:
+        cls_prob = float(classifier_top.get("prob") or 0.0)
+        cls_second = float(classifier_top.get("second_prob") or 0.0)
+        if cls_prob >= settings.classifier_strong_prob:
+            bd.agreement = max(bd.agreement, 1.0)
+            bd.coverage = max(bd.coverage, cls_prob)
+            bd.margin = max(bd.margin, cls_prob - cls_second)
+            bd.reasons.append(
+                f"本地分类器以 {cls_prob:.0%} 的概率确认「{top1_name}」"
+                f"（与次选区分 {cls_prob - cls_second:.0%}）")
+    elif classifier_top and float(classifier_top.get("prob") or 0.0)             >= settings.classifier_strong_prob             and float(classifier_top.get("prob") or 0.0) - float(
+                classifier_top.get("second_prob") or 0.0) >= 0.3:
+        cls_name = classifier_top["name"]
+        cls_prob = float(classifier_top["prob"])
+        bd.agreement = min(bd.agreement, 0.3)
+        bd.reasons.append(
+            f"本地分类器以 {cls_prob:.0%} 概率判定为「{cls_name}」，"
+            f"与结论不一致——两个通道打架，按更保守处理")
+
 
     # ---- 加权汇总 ----
     bd.score = _clamp(

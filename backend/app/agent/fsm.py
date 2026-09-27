@@ -400,10 +400,24 @@ class AgriAgent:
 
         # ---- 闸门 A：置信度判定 ----
         top1 = self._resolve_top1(ctx)
+        # 分类器证据：从合并后的候选里取 source=classifier 的最强与次强，
+        # 传给置信度模块参与一致性/区分度判定（无分类器候选时为 None）
+        cls_cands = sorted(
+            (c for c in ctx.candidates if c.get("source") == "classifier"),
+            key=lambda c: c.get("confidence") or 0, reverse=True)
+        classifier_top = None
+        if cls_cands:
+            classifier_top = {
+                "name": cls_cands[0]["name"],
+                "prob": cls_cands[0].get("confidence") or 0.0,
+                "second_prob": (cls_cands[1].get("confidence") or 0.0)
+                if len(cls_cands) > 1 else 0.0,
+            }
         bd = compute_confidence(
             top1_name=top1, retrieval=retrieval,
             image_top1_names=ctx.image_top1_names,
-            shot_types=ctx.image_shot_types)
+            shot_types=ctx.image_shot_types,
+            classifier_top=classifier_top)
         ctx.confidence = bd
         ctx.user_context["top1"] = top1
 

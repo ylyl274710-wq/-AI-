@@ -1004,6 +1004,37 @@ DISEASES_EXT: list[dict] = [
        differentiate="与炭疽病区分：苦痘病斑皮下海绵状苦味、果面凹陷但无霉层；"
                      "炭疽病软腐、有同心黑点和粉红黏液。切开果肉一尝便知。"),
 
+    _d(standard_name="苹果黑星病", aliases=["苹果疮痂病"], category="disease",
+       crop_names=["苹果"], pathogen="苹果黑星菌（Venturia inaequalis）",
+       severity="high",
+       symptoms="叶面初现淡黄绿色的圆形或放射状病斑，随后变为橄榄绿色至"
+                "墨绿色，表面覆盖绒絮状霉层，后期病斑凹陷、硬化并开裂；"
+                "果实自幼果期即可受害，出现墨绿色凹陷硬化病斑并龟裂畸形。",
+       conditions={"temp_min": 6, "temp_max": 26, "humidity_min": 85,
+                   "rain_hours_min": 9},
+       stage_susceptibility={"苗期": "中", "开花期": "高", "结果期": "高"},
+       control_advice="早春彻底清除园内落叶（越冬病菌主要在落叶上），"
+                      "萌芽前喷石硫合剂类铲除剂；花落后至套袋前用登记的"
+                      "保护性与治疗性杀菌剂交替喷雾，重点保护幼叶幼果。",
+       differentiate="与斑点落叶病区分：黑星病斑呈橄榄绿色有霉层、"
+                     "后期硬化开裂、多从叶正面发生；斑点落叶病为红褐色"
+                     "圆形斑、中心有黑色小点。",
+       occurrence="冷凉多湿的春季流行最快，叶面持续湿润 9 小时以上即可完成侵染。"),
+
+    _d(standard_name="苹果黑腐病", aliases=["苹果轮纹状黑腐"], category="disease",
+       crop_names=["苹果"], pathogen="仁果干腐酪孢菌（Sphaeropsis malorum）",
+       severity="medium",
+       symptoms="主要危害果实和枝干：果面初现褐色小圆斑，迅速扩大软腐，"
+                "后期同心轮纹状排列黑色小点；枝干受害形成溃疡斑；"
+                "叶片出现紫褐色边缘的灰白色病斑，上生黑色小粒点。",
+       conditions={"temp_min": 20, "temp_max": 30, "humidity_min": 80,
+                   "rain_hours_min": 2},
+       stage_susceptibility={"苗期": "低", "开花期": "低", "结果期": "高"},
+       control_advice="剪除僵果与病枝并带出果园烧毁；采收避免机械伤口；"
+                      "生长季结合套袋前用登记的甲基硫菌灵类药剂保护果实。",
+       differentiate="与炭疽病区分：黑腐病斑上黑点更大、排成同心环、"
+                     "病果多为僵果；炭疽病溢出粉红色黏孢子团。"),
+
     # ============================== 跨作物（补 8 条） ============================== #
     _d(standard_name="地老虎", aliases=["切根虫", "土蚕"], category="pest",
        crop_names=["玉米", "蔬菜", "马铃薯"], pathogen="",
