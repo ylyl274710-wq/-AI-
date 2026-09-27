@@ -22,12 +22,13 @@
         st.sessions = list || [];
         if (!st.sessions.length) {
           el.innerHTML = '<div class="page-head"><div><h1>对话记录</h1>' +
-            '<div class="sub">你和系统的每一次问答都会留在这里</div></div></div>' +
+            '<div class="sub">同一话题的连续追问会归入同一个会话</div></div></div>' +
             '<div class="card">' +
             ui.empty('还没有对话。去拍张照片问一次吧。', '💬') +
             '<div class="center" style="padding-bottom:16px">' +
             '<button class="btn primary" id="goDiag">开始一次诊断</button></div></div>';
           el.querySelector('#goDiag').addEventListener('click', function () {
+            Agri.store.newDiagTopic();
             Agri.app.go('diagnose');
           });
           return;
@@ -43,8 +44,8 @@
     el.innerHTML =
       '<div class="page-head">' +
         '<div><h1>对话记录</h1>' +
-        '<div class="sub">共 ' + st.sessions.length + ' 次对话</div></div>' +
-        '<button class="btn primary" id="newDiag">新的一次提问</button>' +
+        '<div class="sub">共 ' + st.sessions.length + ' 个会话</div></div>' +
+        '<button class="btn primary" id="newDiag">开新话题</button>' +
       '</div>' +
       '<div class="grid" style="grid-template-columns:280px minmax(0,1fr);gap:16px" id="chatGrid">' +
         '<div class="card pad-0" id="sessList"></div>' +
@@ -52,6 +53,7 @@
       '</div>';
 
     el.querySelector('#newDiag').addEventListener('click', function () {
+      Agri.store.newDiagTopic();
       Agri.app.go('diagnose');
     });
     paintSessions(el);
@@ -63,23 +65,44 @@
     }
   }
 
+  function dayLabel(iso) {
+    var d = (iso || '').slice(0, 10);
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    var now = new Date();
+    var today = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+    var y = new Date(now.getTime() - 86400000);
+    var yest = y.getFullYear() + '-' + pad(y.getMonth() + 1) + '-' + pad(y.getDate());
+    if (d === today) return '今天';
+    if (d === yest) return '昨天';
+    return (d.slice(5) || '').replace('-', '月') + '日';
+  }
+
   function paintSessions(el) {
-    el.querySelector('#sessList').innerHTML =
-      '<div class="card-head"><h3>会话</h3></div><div class="list">' +
-      st.sessions.map(function (s) {
-        return '<div class="item clickable' +
-          (s.session_id === st.current ? ' ' : '') + '" data-sid="' +
-          esc(s.session_id) + '"' +
-          (s.session_id === st.current ? ' style="background:var(--c-primary-soft)"' : '') +
-          '>' +
-          '<div class="main-col">' +
-            '<span class="title" style="font-weight:500;font-size:var(--fs-sm)">' +
-              esc(s.last_question || '（无提问）') + '</span>' +
-            '<span class="sub tiny">' + esc(ui.relTime(s.last_at)) +
-              '　·　' + s.message_count + ' 条</span>' +
-          '</div>' +
-        '</div>';
-      }).join('') + '</div>';
+    // 按日期分组 + 单行省略：会话多的时候一眼能扫到目标，
+    // 之前「每次问答一条大卡片」的堆法被用户点名批评过
+    var html = '<div class="card-head"><h3>会话</h3></div>';
+    var lastLabel = '';
+    st.sessions.forEach(function (s) {
+      var label = dayLabel(s.last_at);
+      if (label !== lastLabel) {
+        html += '<div class="tiny faint" style="padding:6px 12px 2px;' +
+          'border-top:1px solid var(--c-border);margin-top:2px">' + esc(label) + '</div>';
+        lastLabel = label;
+      }
+      html += '<div class="item clickable" data-sid="' +
+        esc(s.session_id) + '"' +
+        (s.session_id === st.current ? ' style="background:var(--c-primary-soft)"' : '') +
+        '>' +
+        '<div class="main-col">' +
+          '<span class="title" style="font-weight:500;font-size:var(--fs-sm);' +
+            'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block">' +
+            esc(s.last_question || '（无提问）') + '</span>' +
+          '<span class="sub tiny">' + esc(ui.relTime(s.last_at)) +
+            '　·　' + s.message_count + ' 条</span>' +
+        '</div>' +
+      '</div>';
+    });
+    el.querySelector('#sessList').innerHTML = html + '</div>';
 
     el.querySelector('#sessList').onclick = function (e) {
       var it = e.target.closest('[data-sid]');
@@ -99,10 +122,21 @@
       box.innerHTML =
         '<div class="card-head"><h3>' + esc(ui.fmtTime(st.msgs[0].created_at)) +
           ' 的对话</h3>' +
-          '<button class="btn sm danger" id="delSess">删除这次对话</button></div>' +
+          '<div class="row" style="gap:8px">' +
+            '<button class="btn sm" id="contSess">继续这个话题</button>' +
+            '<button class="btn sm danger" id="delSess">删除</button>' +
+          '</div></div>' +
         '<div class="card-body chat-wrap">' +
           st.msgs.map(function (m) { return msgHtml(m); }).join('') +
         '</div>';
+
+      box.querySelector('#contSess').addEventListener('click', function () {
+        // 续聊旧话题：把当前会话设为诊断页的活动话题，跳过去直接追问，
+        // 多轮记忆会带上这个会话的全部历史
+        Agri.store.setDiagSession(sid);
+        ui.toast('已切换到这个话题，去继续追问', 'ok');
+        Agri.app.go('diagnose');
+      });
 
       box.querySelector('#delSess').addEventListener('click', function () {
         ui.modal({

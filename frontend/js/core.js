@@ -68,11 +68,17 @@
     // 老人模式默认开：这是面向「不太会用智能手机的农户」的产品，
     // 默认值应该照顾目标用户，而不是照顾开发者自己看着舒服。
     elder: localStorage.getItem(LS_ELDER) !== '0',
+    // 当前诊断话题的会话 id（内存级，不持久化——刷新页面开新话题是合理语义）。
+    // ★ 连续提问共用同一个 session：列表不再每次问答多一条记录，
+    //   后端的多轮记忆（按会话聚合历史）也才能在界面上真正生效。
+    diagSessionId: '',
     _subs: [],
 
     on: function (fn) { this._subs.push(fn); },
     emit: function () { this._subs.forEach(function (f) { try { f(); } catch (e) {} }); },
 
+    setDiagSession: function (sid) { this.diagSessionId = sid || ''; },
+    newDiagTopic: function () { this.diagSessionId = ''; },
     setToken: function (t) {
       this.token = t || '';
       if (t) localStorage.setItem(LS_TOKEN, t);

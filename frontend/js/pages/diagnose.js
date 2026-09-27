@@ -96,6 +96,10 @@
                 '或者：下部的叶子发黄，边缘干枯"></textarea></label>' +
 
             '<button class="btn primary lg block" id="submit">开始判断</button>' +
+            '<button class="btn ghost block" id="newTopic" hidden>开新话题' +
+              '（当前对话到此为止）</button>' +
+            '<p class="tiny faint center" id="sessHint" hidden>同一话题内连续追问，' +
+              '系统会记住之前聊过什么；要换话题点上面的按钮。</p>' +
             '<p class="tiny faint center">' +
               '照片和文字至少要有一样。判断结果仅供参考，用药请以产品标签为准。</p>' +
           '</div>' +
@@ -109,6 +113,20 @@
     el.querySelector('#submit').addEventListener('click', function () {
       submit(el);
     });
+    el.querySelector('#newTopic').addEventListener('click', function () {
+      Agri.store.newDiagTopic();
+      el.querySelector('#result').innerHTML = '';
+      el.querySelector('#newTopic').hidden = true;
+      el.querySelector('#sessHint').hidden = true;
+      el.querySelector('#submit').textContent = '开始判断';
+      ui.toast('已开新话题', 'ok');
+    });
+    // 从对话页「继续这个话题」跳过来时，提示处于续聊状态
+    if (Agri.store.diagSessionId) {
+      el.querySelector('#newTopic').hidden = false;
+      el.querySelector('#sessHint').hidden = false;
+      el.querySelector('#submit').textContent = '继续追问';
+    }
   }
 
   /* ---------------- 上传 ---------------- */
@@ -218,7 +236,7 @@
     function done() {
       st.running = false;
       btn.disabled = false;
-      btn.textContent = '再判断一次';
+      btn.textContent = '继续追问';
     }
 
     api.streamDiagnose({
@@ -226,9 +244,15 @@
       crop_name: el.querySelector('#crop').value,
       field_id: fieldId || undefined,
       growth_stage: el.querySelector('#stage').value,
+      session_id: Agri.store.diagSessionId || undefined,
       shot_types: JSON.stringify(st.files.map(function (f) { return f.shot; }))
     }, st.files.map(function (f) { return f.file; }), function (ev, d) {
       if (ev === 'start') {
+        // 后端确认/生成的会话 id 存回 store：同话题的后续提问自动续上，
+        // 多轮记忆（按会话聚合历史）才会生效
+        if (d.session_id) Agri.store.setDiagSession(d.session_id);
+        el.querySelector('#newTopic').hidden = false;
+        el.querySelector('#sessHint').hidden = false;
         setTip(el, '正在读取照片…');
       } else if (ev === 'progress' && d.type === 'trace') {
         steps.push({ node: d.node, status: 'ok', elapsed_ms: d.elapsed_ms });

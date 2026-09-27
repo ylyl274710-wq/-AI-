@@ -60,6 +60,8 @@
           '<div class="mt-4">' + recentCard(ov.recent_diagnoses) + '</div>';
 
         el.querySelector('#goDiag').addEventListener('click', function () {
+          // 首页「拍照片看看」= 开一个新话题，不接续旧的诊断会话
+          Agri.store.newDiagTopic();
           Agri.app.go('diagnose');
         });
         // 空状态里的引导按钮只在对应卡片为空时存在，所以要判空再绑
