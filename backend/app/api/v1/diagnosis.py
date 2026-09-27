@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import uuid
 
 from fastapi import (APIRouter, Depends, File, Form, HTTPException, Query,
@@ -26,6 +27,8 @@ from app.agent.state import INTENT_LABELS, AgentContext
 from app.core.config import settings
 from app.core.db import get_db
 from app.core.security import get_current_user
+
+logger = logging.getLogger(__name__)
 from app.models.diagnosis import DiagnosisImage, DiagnosisRecord
 from app.models.user import User
 from app.schemas import (Citation, ConfidenceOut, DiagnoseOut, TraceStepOut)
@@ -137,10 +140,28 @@ def _to_out(ctx: AgentContext) -> DiagnoseOut:
     )
 
 
+def _mojibake_suspect(text: str) -> bool:
+    """检测疑似编码损坏的入参（GBK 字节被按 Latin-1 解码的典型形态）。
+
+    背景：Windows 下用 curl 发中文会把 GBK 字节直接发上来，服务端按
+    Latin-1 解出「ÏÖÔÚÕâ¶ÎÊ±¼ä」这类字符并存库（实测污染过 chat_messages）。
+    不拦截——只大声告警，让这类问题在入口处一眼可见，而不是烂在数据库里
+    等用户截图来问。
+    """
+    if not text:
+        return False
+    bad = sum(1 for ch in text if 0xC0 <= ord(ch) <= 0xFF)
+    return bad >= 3 and bad > len(text) * 0.15
+
+
 def _build_ctx(*, user: User, query: str, crop_name: str | None,
                field_id: int | None, growth_stage: str | None,
                session_id: str | None, shot_types: list[str],
                images: list[bytes]) -> AgentContext:
+    if _mojibake_suspect(query):
+        logger.warning(
+            "检测到疑似编码损坏的 query（GBK-as-Latin-1 特征），"
+            "大概率是 curl 等工具按 GBK 发送了中文：%r", query[:60])
     return AgentContext(
         user_id=user.id,
         session_id=session_id or uuid.uuid4().hex[:24],
