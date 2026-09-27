@@ -79,7 +79,21 @@ if _media_dir.is_dir():
 # 同时也支持直接用 file:// 打开 index.html（靠 CORS 放行 null origin）。
 _frontend_dir = PROJECT_ROOT / "frontend"
 if _frontend_dir.is_dir():
-    app.mount("/app", StaticFiles(directory=str(_frontend_dir), html=True),
+    # ★ 前端资源必须 no-cache：零依赖前端的 JS 互相有版本耦合
+    #   （core.js 的 store 方法被页面 js 调用），浏览器启发式缓存会让
+    #   「新版页面 + 旧版 core.js」混合运行，报 setDiagSession is not a
+    #   function 这类错（2026-09-27 实测）。JS/CSS/HTML 一共 10 个文件，
+    #   每次 revalidate 的成本可以忽略，换来的永远是最新代码。
+    class _NoCacheStaticFiles(StaticFiles):
+        async def get_response(self, path: str, scope):
+            resp = await super().get_response(path, scope)
+            if getattr(resp, "media_type", "") in (
+                    "text/html", "text/css",
+                    "application/javascript", "text/javascript"):
+                resp.headers["Cache-Control"] = "no-cache, must-revalidate"
+            return resp
+
+    app.mount("/app", _NoCacheStaticFiles(directory=str(_frontend_dir), html=True),
               name="frontend")
 
 
