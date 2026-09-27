@@ -88,7 +88,8 @@ backend/
   alembic/        # 3 个迁移版本
 frontend/         # 零依赖静态前端 + 纯 Node 静态检查工具
 scripts/          # infra.py 基础设施管理器、PV 分类器训练脚本
-docs/             # 实施问题清单（60+ 项缺陷与修复的完整过程记录）
+docs/             # 问题与解决总结（提炼版）+ 实施问题清单（D1~D34 全记录）
+                  # 知识库维护指南（如何添加/更新知识条目）
 models/           # PV 分类器标签映射（pv_labels.json）
 ```
 
