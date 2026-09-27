@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from datetime import date, timedelta
 
 from sqlalchemy import select
@@ -81,6 +82,20 @@ async def load_usage_history(*, ctx: AgentContext, db: Session,
 # ---------------------------------------------------------------------- #
 # DIAGNOSE 节点工具
 # ---------------------------------------------------------------------- #
+_NAME_PREFIX = re.compile(r"^(疑似|好像[是]?|可能[是]?|大概[是]?|估计[是]?|怀疑[是]?)\s*")
+
+
+def normalize_candidate_name(raw: str) -> str:
+    """把 VLM 输出的候选名规范成可直接匹配的知识库/登记表名称。
+
+    ★ VLM 爱说「疑似苹果斑点落叶病」——多个「疑似」字，规则引擎与
+      知识库对齐全部失配，用药建议因此全拦（2026-09-28 用户实测）。
+      这里剥掉口语化的不确定前缀；剩下的名字与标准名精确对齐。
+    """
+    name = (raw or "").strip()
+    return _NAME_PREFIX.sub("", name).strip("。 ，,、；")
+
+
 async def vision_diagnose(*, ctx: AgentContext, db: Session, **_) -> dict:
     """多模态诊断。图片先压缩再送模型（文档难点 11 的成本控制）。"""
     del db
@@ -138,8 +153,13 @@ async def vision_diagnose(*, ctx: AgentContext, db: Session, **_) -> dict:
     data = extract_json(result.text) or {}
     if not isinstance(data, dict):
         data = {}
-    candidates = [c for c in (data.get("candidates") or [])
-                  if isinstance(c, dict) and c.get("name")]
+    candidates = []
+    for c in (data.get("candidates") or []):
+        if not (isinstance(c, dict) and c.get("name")):
+            continue
+        c["name"] = normalize_candidate_name(str(c["name"]))
+        if c["name"]:
+            candidates.append(c)
     per_image = []
     for item in (data.get("per_image") or []):
         if isinstance(item, dict) and item.get("top1"):
