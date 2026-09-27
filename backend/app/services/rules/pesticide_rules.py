@@ -173,8 +173,19 @@ class PesticideRuleEngine:
                               f"{len(result.approved)} 个通过规则校验")
         else:
             result.hard_blocked = settings.rule_hard_block
-            result.message = ("没有找到符合条件的登记农药。"
-                              "请以当前产品标签为准，或咨询当地植保部门。")
+            # 区分「真的无登记」与「有登记但阶段不符」：后者的药是存在的，
+            # 统一句「没有找到」会误导用户以为病害无药可治（2026-09-28 实测）
+            stage_only = [c for c in result.blocked
+                          if list(c.blocked_reasons) == ["stage_mismatch"]]
+            if stage_only:
+                gs = result.growth_stage or "当前阶段"
+                result.message = (
+                    f"有 {len(stage_only)} 个产品登记了「{disease_name}」，"
+                    f"但都不适用于你选择的生长阶段（{gs}）。"
+                    "请核对这些产品标注的适用阶段，或咨询当地植保部门。")
+            else:
+                result.message = ("没有找到符合条件的登记农药。"
+                                  "请以当前产品标签为准，或咨询当地植保部门。")
         return result
 
     # ------------------------------------------------------------------ #
