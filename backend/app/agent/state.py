@@ -18,6 +18,7 @@ class AgentState(str, Enum):
     CONTEXT = "context"
     DIAGNOSE = "diagnose"
     RETRIEVE = "retrieve"
+    TOOL_LOOP = "tool_loop"
     RULE_CHECK = "rule_check"
     COMPOSE = "compose"
     PERSIST = "persist"
@@ -39,11 +40,15 @@ MAIN_CHAIN = [AgentState.INTENT, AgentState.CONTEXT, AgentState.DIAGNOSE,
 
 # 意图 → 需要执行的节点子集。不是每个问题都要走全流程：
 # 「叶子发黄是怎么回事」不需要农药规则校验；「这个药能不能用」则需要。
+#
+# consult 走 TOOL_LOOP 而不是固定 RETRIEVE：咨询是开放问题（「现在适合打药吗」
+# 可能需要天气、地块、知识库三种信息），让 LLM 自己决定调什么工具、调几轮；
+# 诊断保持固定管线（确定性优先）。两种形态并存是有意的设计对照。
 INTENT_ROUTES: dict[str, list[AgentState]] = {
     "diagnosis": [AgentState.INTENT, AgentState.CONTEXT, AgentState.DIAGNOSE,
                   AgentState.RETRIEVE, AgentState.RULE_CHECK, AgentState.COMPOSE,
                   AgentState.PERSIST, AgentState.REMIND, AgentState.DONE],
-    "consult": [AgentState.INTENT, AgentState.CONTEXT, AgentState.RETRIEVE,
+    "consult": [AgentState.INTENT, AgentState.CONTEXT, AgentState.TOOL_LOOP,
                 AgentState.COMPOSE, AgentState.PERSIST, AgentState.DONE],
     "pesticide": [AgentState.INTENT, AgentState.CONTEXT, AgentState.RETRIEVE,
                   AgentState.RULE_CHECK, AgentState.COMPOSE, AgentState.PERSIST,
@@ -108,6 +113,14 @@ class AgentContext:
     errors: list[str] = field(default_factory=list)
     degraded: bool = False
     steps: int = 0
+
+    # ---- 多轮记忆：本会话最近几轮对话（run 开始时加载，只读） ----
+    history: list[dict[str, str]] = field(default_factory=list)
+    # ---- token 流式：SSE 路由注入的队列，compose 产出 delta 时推送；
+    #      一次性路由不注入（None），compose 走原同步路径 ----
+    stream_queue: Any = None
+    # ---- 工具循环产物：LLM 自主调用工具收集到的证据块（consult 路径） ----
+    tool_loop_evidence: list[str] = field(default_factory=list)
 
     # ---- 各节点产物 ----
     user_context: dict[str, Any] = field(default_factory=dict)

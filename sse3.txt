@@ -1,0 +1,999 @@
+event: start
+data: {"session_id": "p1-tool-test", "images": 0}
+
+event: progress
+data: {"type": "trace", "node": "intent", "next": "context", "elapsed_ms": 4046, "detail": "", "steps": 1}
+
+event: progress
+data: {"type": "trace", "node": "context", "next": "diagnose", "elapsed_ms": 0, "detail": "", "steps": 2}
+
+event: progress
+data: {"type": "trace", "node": "diagnose", "next": "retrieve", "elapsed_ms": 0, "detail": "", "steps": 3}
+
+event: progress
+data: {"type": "trace", "node": "retrieve", "next": "rule_check", "elapsed_ms": 6265, "detail": "", "steps": 4}
+
+event: progress
+data: {"type": "trace", "node": "rule_check", "next": "compose", "elapsed_ms": 16, "detail": "", "steps": 5}
+
+event: delta
+data: {"type": "delta", "text": "【"}
+
+event: delta
+data: {"type": "delta", "text": "发现"}
+
+event: delta
+data: {"type": "delta", "text": "什么"}
+
+event: delta
+data: {"type": "delta", "text": "】"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "从"}
+
+event: delta
+data: {"type": "delta", "text": "你"}
+
+event: delta
+data: {"type": "delta", "text": "问"}
+
+event: delta
+data: {"type": "delta", "text": "的"}
+
+event: delta
+data: {"type": "delta", "text": "辣椒"}
+
+event: delta
+data: {"type": "delta", "text": "来看"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "目前"}
+
+event: delta
+data: {"type": "delta", "text": "系统"}
+
+event: delta
+data: {"type": "delta", "text": "只能"}
+
+event: delta
+data: {"type": "delta", "text": "给出"}
+
+event: delta
+data: {"type": "delta", "text": "一个"}
+
+event: delta
+data: {"type": "delta", "text": "初步"}
+
+event: delta
+data: {"type": "delta", "text": "判断"}
+
+event: delta
+data: {"type": "delta", "text": "："}
+
+event: delta
+data: {"type": "delta", "text": "疑似"}
+
+event: delta
+data: {"type": "delta", "text": "辣椒"}
+
+event: delta
+data: {"type": "delta", "text": "烟"}
+
+event: delta
+data: {"type": "delta", "text": "青"}
+
+event: delta
+data: {"type": "delta", "text": "虫"}
+
+event: delta
+data: {"type": "delta", "text": "（"}
+
+event: delta
+data: {"type": "delta", "text": "一种"}
+
+event: delta
+data: {"type": "delta", "text": "蛀"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "的"}
+
+event: delta
+data: {"type": "delta", "text": "虫子"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "幼虫"}
+
+event: delta
+data: {"type": "delta", "text": "会"}
+
+event: delta
+data: {"type": "delta", "text": "钻"}
+
+event: delta
+data: {"type": "delta", "text": "到"}
+
+event: delta
+data: {"type": "delta", "text": "辣椒"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "里"}
+
+event: delta
+data: {"type": "delta", "text": "吃"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "面"}
+
+event: delta
+data: {"type": "delta", "text": "有"}
+
+event: delta
+data: {"type": "delta", "text": "蛀"}
+
+event: delta
+data: {"type": "delta", "text": "孔"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "带"}
+
+event: delta
+data: {"type": "delta", "text": "虫"}
+
+event: delta
+data: {"type": "delta", "text": "粪"}
+
+event: delta
+data: {"type": "delta", "text": "）。"}
+
+event: delta
+data: {"type": "delta", "text": "但这个"}
+
+event: delta
+data: {"type": "delta", "text": "判断"}
+
+event: delta
+data: {"type": "delta", "text": "的"}
+
+event: delta
+data: {"type": "delta", "text": "把握"}
+
+event: delta
+data: {"type": "delta", "text": "度"}
+
+event: delta
+data: {"type": "delta", "text": "不算"}
+
+event: delta
+data: {"type": "delta", "text": "高"}
+
+event: delta
+data: {"type": "delta", "text": "（"}
+
+event: delta
+data: {"type": "delta", "text": "只有"}
+
+event: delta
+data: {"type": "delta", "text": "36"}
+
+event: delta
+data: {"type": "delta", "text": "%，"}
+
+event: delta
+data: {"type": "delta", "text": "及格"}
+
+event: delta
+data: {"type": "delta", "text": "线"}
+
+event: delta
+data: {"type": "delta", "text": "是"}
+
+event: delta
+data: {"type": "delta", "text": "55"}
+
+event: delta
+data: {"type": "delta", "text": "%"}
+
+event: delta
+data: {"type": "delta", "text": "），"}
+
+event: delta
+data: {"type": "delta", "text": "而且"}
+
+event: delta
+data: {"type": "delta", "text": "现在"}
+
+event: delta
+data: {"type": "delta", "text": "天气"}
+
+event: delta
+data: {"type": "delta", "text": "偏"}
+
+event: delta
+data: {"type": "delta", "text": "凉"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "湿度"}
+
+event: delta
+data: {"type": "delta", "text": "够"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "虫子"}
+
+event: delta
+data: {"type": "delta", "text": "有"}
+
+event: delta
+data: {"type": "delta", "text": "中等"}
+
+event: delta
+data: {"type": "delta", "text": "风险"}
+
+event: delta
+data: {"type": "delta", "text": "出现"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "但"}
+
+event: delta
+data: {"type": "delta", "text": "还不能"}
+
+event: delta
+data: {"type": "delta", "text": "确定"}
+
+event: delta
+data: {"type": "delta", "text": "就是"}
+
+event: delta
+data: {"type": "delta", "text": "它"}
+
+event: delta
+data: {"type": "delta", "text": " ["}
+
+event: delta
+data: {"type": "delta", "text": "2"}
+
+event: delta
+data: {"type": "delta", "text": "]。"}
+
+event: delta
+data: {"type": "delta", "text": "另外"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "我"}
+
+event: delta
+data: {"type": "delta", "text": "手"}
+
+event: delta
+data: {"type": "delta", "text": "头"}
+
+event: delta
+data: {"type": "delta", "text": "没有"}
+
+event: delta
+data: {"type": "delta", "text": "你"}
+
+event: delta
+data: {"type": "delta", "text": "拍的"}
+
+event: delta
+data: {"type": "delta", "text": "辣椒"}
+
+event: delta
+data: {"type": "delta", "text": "照片"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "光"}
+
+event: delta
+data: {"type": "delta", "text": "凭"}
+
+event: delta
+data: {"type": "delta", "text": "文字"}
+
+event: delta
+data: {"type": "delta", "text": "没法"}
+
+event: delta
+data: {"type": "delta", "text": "看清"}
+
+event: delta
+data: {"type": "delta", "text": "具体"}
+
+event: delta
+data: {"type": "delta", "text": "症状"}
+
+event: delta
+data: {"type": "delta", "text": "。\n\n"}
+
+event: delta
+data: {"type": "delta", "text": "【"}
+
+event: delta
+data: {"type": "delta", "text": "现在"}
+
+event: delta
+data: {"type": "delta", "text": "做什么"}
+
+event: delta
+data: {"type": "delta", "text": "】"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "先"}
+
+event: delta
+data: {"type": "delta", "text": "别"}
+
+event: delta
+data: {"type": "delta", "text": "急着"}
+
+event: delta
+data: {"type": "delta", "text": "打"}
+
+event: delta
+data: {"type": "delta", "text": "药"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "建议"}
+
+event: delta
+data: {"type": "delta", "text": "你"}
+
+event: delta
+data: {"type": "delta", "text": "立刻"}
+
+event: delta
+data: {"type": "delta", "text": "做"}
+
+event: delta
+data: {"type": "delta", "text": "三"}
+
+event: delta
+data: {"type": "delta", "text": "件事"}
+
+event: delta
+data: {"type": "delta", "text": "："}
+
+event: delta
+data: {"type": "delta", "text": "①"}
+
+event: delta
+data: {"type": "delta", "text": "仔细"}
+
+event: delta
+data: {"type": "delta", "text": "看看"}
+
+event: delta
+data: {"type": "delta", "text": "辣椒"}
+
+event: delta
+data: {"type": "delta", "text": "果实"}
+
+event: delta
+data: {"type": "delta", "text": "上"}
+
+event: delta
+data: {"type": "delta", "text": "有没有"}
+
+event: delta
+data: {"type": "delta", "text": "蛀"}
+
+event: delta
+data: {"type": "delta", "text": "孔"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "虫"}
+
+event: delta
+data: {"type": "delta", "text": "粪"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "或者"}
+
+event: delta
+data: {"type": "delta", "text": "花"}
+
+event: delta
+data: {"type": "delta", "text": "蕾"}
+
+event: delta
+data: {"type": "delta", "text": "有没有"}
+
+event: delta
+data: {"type": "delta", "text": "变"}
+
+event: delta
+data: {"type": "delta", "text": "黄"}
+
+event: delta
+data: {"type": "delta", "text": "脱落"}
+
+event: delta
+data: {"type": "delta", "text": "；"}
+
+event: delta
+data: {"type": "delta", "text": "②"}
+
+event: delta
+data: {"type": "delta", "text": "把"}
+
+event: delta
+data: {"type": "delta", "text": "有"}
+
+event: delta
+data: {"type": "delta", "text": "怀疑"}
+
+event: delta
+data: {"type": "delta", "text": "的"}
+
+event: delta
+data: {"type": "delta", "text": "辣椒"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "摘"}
+
+event: delta
+data: {"type": "delta", "text": "下来"}
+
+event: delta
+data: {"type": "delta", "text": "掰"}
+
+event: delta
+data: {"type": "delta", "text": "开"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "看"}
+
+event: delta
+data: {"type": "delta", "text": "里面"}
+
+event: delta
+data: {"type": "delta", "text": "有没有"}
+
+event: delta
+data: {"type": "delta", "text": "绿色"}
+
+event: delta
+data: {"type": "delta", "text": "或"}
+
+event: delta
+data: {"type": "delta", "text": "暗"}
+
+event: delta
+data: {"type": "delta", "text": "褐色"}
+
+event: delta
+data: {"type": "delta", "text": "的小"}
+
+event: delta
+data: {"type": "delta", "text": "虫"}
+
+event: delta
+data: {"type": "delta", "text": "；"}
+
+event: delta
+data: {"type": "delta", "text": "③"}
+
+event: delta
+data: {"type": "delta", "text": "如果"}
+
+event: delta
+data: {"type": "delta", "text": "发现"}
+
+event: delta
+data: {"type": "delta", "text": "虫子"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "把"}
+
+event: delta
+data: {"type": "delta", "text": "虫"}
+
+event: delta
+data: {"type": "delta", "text": "子和"}
+
+event: delta
+data: {"type": "delta", "text": "受害"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "拍照"}
+
+event: delta
+data: {"type": "delta", "text": "发"}
+
+event: delta
+data: {"type": "delta", "text": "给我"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "同时"}
+
+event: delta
+data: {"type": "delta", "text": "可以"}
+
+event: delta
+data: {"type": "delta", "text": "挂"}
+
+event: delta
+data: {"type": "delta", "text": "黄"}
+
+event: delta
+data: {"type": "delta", "text": "板"}
+
+event: delta
+data: {"type": "delta", "text": "或"}
+
+event: delta
+data: {"type": "delta", "text": "性"}
+
+event: delta
+data: {"type": "delta", "text": "诱"}
+
+event: delta
+data: {"type": "delta", "text": "剂"}
+
+event: delta
+data: {"type": "delta", "text": "（"}
+
+event: delta
+data: {"type": "delta", "text": "诱"}
+
+event: delta
+data: {"type": "delta", "text": "捕"}
+
+event: delta
+data: {"type": "delta", "text": "成虫"}
+
+event: delta
+data: {"type": "delta", "text": "用的"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "不是"}
+
+event: delta
+data: {"type": "delta", "text": "农药"}
+
+event: delta
+data: {"type": "delta", "text": "）"}
+
+event: delta
+data: {"type": "delta", "text": "来"}
+
+event: delta
+data: {"type": "delta", "text": "测"}
+
+event: delta
+data: {"type": "delta", "text": "虫"}
+
+event: delta
+data: {"type": "delta", "text": "量"}
+
+event: delta
+data: {"type": "delta", "text": " ["}
+
+event: delta
+data: {"type": "delta", "text": "2"}
+
+event: delta
+data: {"type": "delta", "text": "]。"}
+
+event: delta
+data: {"type": "delta", "text": "因为"}
+
+event: delta
+data: {"type": "delta", "text": "系统"}
+
+event: delta
+data: {"type": "delta", "text": "还没"}
+
+event: delta
+data: {"type": "delta", "text": "达到"}
+
+event: delta
+data: {"type": "delta", "text": "推荐"}
+
+event: delta
+data: {"type": "delta", "text": "用药"}
+
+event: delta
+data: {"type": "delta", "text": "的"}
+
+event: delta
+data: {"type": "delta", "text": "把握"}
+
+event: delta
+data: {"type": "delta", "text": "度"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "而且"}
+
+event: delta
+data: {"type": "delta", "text": "规则"}
+
+event: delta
+data: {"type": "delta", "text": "引擎"}
+
+event: delta
+data: {"type": "delta", "text": "暂"}
+
+event: delta
+data: {"type": "delta", "text": "未"}
+
+event: delta
+data: {"type": "delta", "text": "放"}
+
+event: delta
+data: {"type": "delta", "text": "行"}
+
+event: delta
+data: {"type": "delta", "text": "任何"}
+
+event: delta
+data: {"type": "delta", "text": "具体"}
+
+event: delta
+data: {"type": "delta", "text": "农药"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "所以"}
+
+event: delta
+data: {"type": "delta", "text": "暂时"}
+
+event: delta
+data: {"type": "delta", "text": "不能"}
+
+event: delta
+data: {"type": "delta", "text": "推荐"}
+
+event: delta
+data: {"type": "delta", "text": "农药"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "你可以"}
+
+event: delta
+data: {"type": "delta", "text": "先"}
+
+event: delta
+data: {"type": "delta", "text": "按"}
+
+event: delta
+data: {"type": "delta", "text": "上述"}
+
+event: delta
+data: {"type": "delta", "text": "办法"}
+
+event: delta
+data: {"type": "delta", "text": "排查"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "或"}
+
+event: delta
+data: {"type": "delta", "text": "咨询"}
+
+event: delta
+data: {"type": "delta", "text": "当地"}
+
+event: delta
+data: {"type": "delta", "text": "植"}
+
+event: delta
+data: {"type": "delta", "text": "保"}
+
+event: delta
+data: {"type": "delta", "text": "人员"}
+
+event: delta
+data: {"type": "delta", "text": "。\n\n"}
+
+event: delta
+data: {"type": "delta", "text": "【"}
+
+event: delta
+data: {"type": "delta", "text": "什么时候"}
+
+event: delta
+data: {"type": "delta", "text": "再看"}
+
+event: delta
+data: {"type": "delta", "text": "】"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "如果"}
+
+event: delta
+data: {"type": "delta", "text": "拍照"}
+
+event: delta
+data: {"type": "delta", "text": "补"}
+
+event: delta
+data: {"type": "delta", "text": "给我"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "我"}
+
+event: delta
+data: {"type": "delta", "text": "尽快"}
+
+event: delta
+data: {"type": "delta", "text": "帮你"}
+
+event: delta
+data: {"type": "delta", "text": "复核"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "如果"}
+
+event: delta
+data: {"type": "delta", "text": "发现"}
+
+event: delta
+data: {"type": "delta", "text": "虫"}
+
+event: delta
+data: {"type": "delta", "text": "已"}
+
+event: delta
+data: {"type": "delta", "text": "蛀"}
+
+event: delta
+data: {"type": "delta", "text": "进"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "里"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "再"}
+
+event: delta
+data: {"type": "delta", "text": "打"}
+
+event: delta
+data: {"type": "delta", "text": "药"}
+
+event: delta
+data: {"type": "delta", "text": "效果"}
+
+event: delta
+data: {"type": "delta", "text": "就"}
+
+event: delta
+data: {"type": "delta", "text": "差了"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "所以要"}
+
+event: delta
+data: {"type": "delta", "text": "抓住"}
+
+event: delta
+data: {"type": "delta", "text": "还没"}
+
+event: delta
+data: {"type": "delta", "text": "蛀"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "的"}
+
+event: delta
+data: {"type": "delta", "text": "时机"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "建议"}
+
+event: delta
+data: {"type": "delta", "text": "最近"}
+
+event: delta
+data: {"type": "delta", "text": "两"}
+
+event: delta
+data: {"type": "delta", "text": "三天"}
+
+event: delta
+data: {"type": "delta", "text": "每天"}
+
+event: delta
+data: {"type": "delta", "text": "查"}
+
+event: delta
+data: {"type": "delta", "text": "一次"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "特别是"}
+
+event: delta
+data: {"type": "delta", "text": "傍晚"}
+
+event: delta
+data: {"type": "delta", "text": "看"}
+
+event: delta
+data: {"type": "delta", "text": "有没有"}
+
+event: delta
+data: {"type": "delta", "text": "成虫"}
+
+event: delta
+data: {"type": "delta", "text": "飞来"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "如果"}
+
+event: delta
+data: {"type": "delta", "text": "虫"}
+
+event: progress
+data: {"type": "trace", "node": "compose", "next": "persist", "elapsed_ms": 6562, "detail": "", "steps": 6}
+
+event: progress
+data: {"type": "trace", "node": "persist", "next": "remind", "elapsed_ms": 15, "detail": "", "steps": 7}
+
+event: progress
+data: {"type": "trace", "node": "remind", "next": "done", "elapsed_ms": 15, "detail": "", "steps": 8}
+
+event: progress
+data: {"type": "final", "state": "done", "intent": "diagnosis", "answer": "【发现什么】  \n从你问的辣椒来看，目前系统只能给出一个初步判断：疑似辣椒烟青虫（一种蛀果的虫子，幼虫会钻到辣椒果里吃，果面有蛀孔、带虫粪）。但这个判断的把握度不算高（只有36%，及格线是55%），而且现在天气偏凉、湿度够，虫子有中等风险出现，但还不能确定就是它 [2]。另外，我手头没有你拍的辣椒照片，光凭文字没法看清具体症状。\n\n【现在做什么】  \n先别急着打药。建议你立刻做三件事：①仔细看看辣椒果实上有没有蛀孔、虫粪，或者花蕾有没有变黄脱落；②把有怀疑的辣椒果摘下来掰开，看里面有没有绿色或暗褐色的小虫；③如果发现虫子，把虫子和受害果拍照发给我。同时可以挂黄板或性诱剂（诱捕成虫用的，不是农药）来测虫量 [2]。因为系统还没达到推荐用药的把握度，而且规则引擎暂未放行任何具体农药，所以暂时不能推荐农药，你可以先按上述办法排查，或咨询当地植保人员。\n\n【什么时候再看】  \n如果拍照补给我，我尽快帮你复核。如果发现虫已蛀进果里，再打药效果就差了，所以要抓住还没蛀果的时机。建议最近两三天每天查一次果，特别是傍晚看有没有成虫飞来。如果虫量明显增多，就赶紧找植保员现场确认。\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。"}
+
+event: delta
+data: {"type": "delta", "text": "量"}
+
+event: delta
+data: {"type": "delta", "text": "明显"}
+
+event: delta
+data: {"type": "delta", "text": "增多"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "就"}
+
+event: delta
+data: {"type": "delta", "text": "赶紧"}
+
+event: delta
+data: {"type": "delta", "text": "找"}
+
+event: delta
+data: {"type": "delta", "text": "植"}
+
+event: delta
+data: {"type": "delta", "text": "保"}
+
+event: delta
+data: {"type": "delta", "text": "员"}
+
+event: delta
+data: {"type": "delta", "text": "现场"}
+
+event: delta
+data: {"type": "delta", "text": "确认"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: final
+data: {"diagnosis_id": 312, "session_id": "p1-tool-test", "state": "done", "intent": "diagnosis", "answer": "【发现什么】  \n从你问的辣椒来看，目前系统只能给出一个初步判断：疑似辣椒烟青虫（一种蛀果的虫子，幼虫会钻到辣椒果里吃，果面有蛀孔、带虫粪）。但这个判断的把握度不算高（只有36%，及格线是55%），而且现在天气偏凉、湿度够，虫子有中等风险出现，但还不能确定就是它 [2]。另外，我手头没有你拍的辣椒照片，光凭文字没法看清具体症状。\n\n【现在做什么】  \n先别急着打药。建议你立刻做三件事：①仔细看看辣椒果实上有没有蛀孔、虫粪，或者花蕾有没有变黄脱落；②把有怀疑的辣椒果摘下来掰开，看里面有没有绿色或暗褐色的小虫；③如果发现虫子，把虫子和受害果拍照发给我。同时可以挂黄板或性诱剂（诱捕成虫用的，不是农药）来测虫量 [2]。因为系统还没达到推荐用药的把握度，而且规则引擎暂未放行任何具体农药，所以暂时不能推荐农药，你可以先按上述办法排查，或咨询当地植保人员。\n\n【什么时候再看】  \n如果拍照补给我，我尽快帮你复核。如果发现虫已蛀进果里，再打药效果就差了，所以要抓住还没蛀果的时机。建议最近两三天每天查一次果，特别是傍晚看有没有成虫飞来。如果虫量明显增多，就赶紧找植保员现场确认。\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。", "answer_sections": {"发现什么": "从你问的辣椒来看，目前系统只能给出一个初步判断：疑似辣椒烟青虫（一种蛀果的虫子，幼虫会钻到辣椒果里吃，果面有蛀孔、带虫粪）。但这个判断的把握度不算高（只有36%，及格线是55%），而且现在天气偏凉、湿度够，虫子有中等风险出现，但还不能确定就是它 [2]。另外，我手头没有你拍的辣椒照片，光凭文字没法看清具体症状。", "现在做什么": "先别急着打药。建议你立刻做三件事：①仔细看看辣椒果实上有没有蛀孔、虫粪，或者花蕾有没有变黄脱落；②把有怀疑的辣椒果摘下来掰开，看里面有没有绿色或暗褐色的小虫；③如果发现虫子，把虫子和受害果拍照发给我。同时可以挂黄板或性诱剂（诱捕成虫用的，不是农药）来测虫量 [2]。因为系统还没达到推荐用药的把握度，而且规则引擎暂未放行任何具体农药，所以暂时不能推荐农药，你可以先按上述办法排查，或咨询当地植保人员。", "什么时候再看": "如果拍照补给我，我尽快帮你复核。如果发现虫已蛀进果里，再打药效果就差了，所以要抓住还没蛀果的时机。建议最近两三天每天查一次果，特别是傍晚看有没有成虫飞来。如果虫量明显增多，就赶紧找植保员现场确认。\n\n农药使用请以**当前产品标签和说明书**为准，并结合当地农业技术部门的指导。不同作物、不同生长阶段的用药要求不同，本回答仅作参考，不替代专业人员现场判断。"}, "top1": "辣椒烟青虫", "confidence": {"score": 0.3649, "margin": 0.0186, "agreement": 0.4, "coverage": 0.9463, "passed": false, "rejected": false, "reasons": ["结论「辣椒烟青虫」与竞争候选的证据强度接近（区分度 0.02），难以区分", "没有上传照片，只能依据文字描述判断"], "missing_shots": ["leaf_front", "leaf_back", "whole_plant", "lesion_closeup"], "method": null}, "citations": [{"index": 1, "title": "农户拍照诊断的拍摄要求", "source": "公开农业植保知识整理（待补充文献出处）", "url": ""}, {"index": 2, "title": "辣椒烟青虫", "source": "公开农业植保知识整理（待补充文献出处）", "url": ""}, {"index": 3, "title": "什么情况必须找当地植保人员", "source": "全国农业技术推广服务中心", "url": "http://www.natesc.org.cn/"}, {"index": 4, "title": "番茄棉铃虫", "source": "公开农业植保知识整理（待补充文献出处）", "url": ""}, {"index": 5, "title": "斜纹夜蛾", "source": "公开农业植保知识整理（待补充文献出处）", "url": ""}, {"index": 6, "title": "辣椒病毒病", "source": "公开农业植保知识整理（待补充文献出处）", "url": ""}, {"index": 7, "title": "番茄病毒病", "source": "公开农业植保知识整理（待补充文献出处）", "url": ""}, {"index": 8, "title": "烟粉虱", "source": "公开农业植保知识整理（待补充文献出处）", "url": ""}], "trace": [{"node": "intent", "status": "ok", "elapsed_ms": 4046, "detail": null, "tools": []}, {"node": "context", "status": "ok", "elapsed_ms": 0, "detail": null, "tools": []}, {"node": "diagnose", "status": "ok", "elapsed_ms": 0, "detail": null, "tools": []}, {"node": "retrieve", "status": "ok", "elapsed_ms": 6265, "detail": null, "tools": []}, {"node": "rule_check", "status": "ok", "elapsed_ms": 16, "detail": null, "tools": []}, {"node": "compose", "status": "ok", "elapsed_ms": 6562, "detail": null, "tools": []}, {"node": "persist", "status": "ok", "elapsed_ms": 15, "detail": null, "tools": []}, {"node": "remind", "status": "ok", "elapsed_ms": 15, "detail": null, "tools": []}], "tool_calls": [{"node": "context", "tool": "load_farm_context", "ok": true, "elapsed_ms": 0, "attempt": 1, "high_risk": false}, {"node": "remind", "tool": "create_farm_task", "ok": true, "elapsed_ms": 15, "attempt": 1, "high_risk": false}], "risk": [{"disease_name": "辣椒烟青虫", "risk_level": "medium", "score": 0.575, "reasons": ["不满足：平均气温 22.5℃（适宜区间 25~30℃）", "满足：最高湿度 92%（发病需 ≥60%）", "满足：当前处于结果期，属于易感阶段"], "advice": "当前天气条件有点适合这个问题发生，建议多留意"}], "rule": {"crop_name": "辣椒", "disease_name": "辣椒烟青虫", "growth_stage": "结果期", "checked": 27, "approved": [], "blocked": [{"product_id": 1, "product_name": "嘧菌酯悬浮剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": ["resistance"], "warning_messages": ["同一类作用机制的药最近用得太频繁了，容易产生抗药性"], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 3, "active_ingredients": ["嘧菌酯"], "resistance_groups": ["FRAC 11"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 2, "product_name": "烯酰吗啉水分散粒剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 3, "active_ingredients": ["烯酰吗啉"], "resistance_groups": ["FRAC 40"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 3, "product_name": "氟吡菌胺·嘧菌酯悬浮剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果"], "warnings": ["resistance"], "warning_messages": ["同一类作用机制的药最近用得太频繁了，容易产生抗药性"], "matched": {"crop": false, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 3, "active_ingredients": ["氟吡菌胺", "嘧菌酯"], "resistance_groups": ["FRAC 43", "FRAC 11"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 4, "product_name": "代森锰锌可湿性粉剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 15, "active_ingredients": ["代森锰锌"], "resistance_groups": ["FRAC M03"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 5, "product_name": "腐霉利烟剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 3, "active_ingredients": ["腐霉利"], "resistance_groups": ["FRAC 2"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 6, "product_name": "啶酰菌胺水分散粒剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": false, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 3, "active_ingredients": ["啶酰菌胺"], "resistance_groups": ["FRAC 7"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 7, "product_name": "异菌脲悬浮剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 7, "active_ingredients": ["异菌脲"], "resistance_groups": ["FRAC 2"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 8, "product_name": "苯醚甲环唑水分散粒剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 7, "active_ingredients": ["苯醚甲环唑"], "resistance_groups": ["FRAC 3"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 9, "product_name": "吡唑醚菌酯乳油", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果"], "warnings": ["resistance"], "warning_messages": ["同一类作用机制的药最近用得太频繁了，容易产生抗药性"], "matched": {"crop": false, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 7, "active_ingredients": ["吡唑醚菌酯"], "resistance_groups": ["FRAC 11"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 10, "product_name": "戊唑醇悬浮剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": ["safety_interval"], "warning_messages": ["离采收期太近，安全间隔期可能不够"], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 21, "active_ingredients": ["戊唑醇"], "resistance_groups": ["FRAC 3"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 11, "product_name": "丙环唑乳油", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": ["safety_interval"], "warning_messages": ["离采收期太近，安全间隔期可能不够"], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 21, "active_ingredients": ["丙环唑"], "resistance_groups": ["FRAC 3"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 12, "product_name": "多菌灵可湿性粉剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": ["safety_interval"], "warning_messages": ["离采收期太近，安全间隔期可能不够"], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 20, "active_ingredients": ["多菌灵"], "resistance_groups": ["FRAC 1"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 13, "product_name": "甲基硫菌灵悬浮剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": ["safety_interval"], "warning_messages": ["离采收期太近，安全间隔期可能不够"], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 20, "active_ingredients": ["甲基硫菌灵"], "resistance_groups": ["FRAC 1"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 14, "product_name": "三环唑可湿性粉剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": ["safety_interval"], "warning_messages": ["离采收期太近，安全间隔期可能不够"], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 21, "active_ingredients": ["三环唑"], "resistance_groups": ["FRAC 16.1"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 15, "product_name": "春雷霉素水剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": false, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["春雷霉素"], "resistance_groups": ["FRAC 24"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 16, "product_name": "井冈霉素水剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": [], "warning_messages": [], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["井冈霉素"], "resistance_groups": ["FRAC 26"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 17, "product_name": "咪鲜胺乳油", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["咪鲜胺"], "resistance_groups": ["FRAC 3"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 18, "product_name": "代森锰锌·苯醚甲环唑可湿性粉剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["代森锰锌", "苯醚甲环唑"], "resistance_groups": ["FRAC M03", "FRAC 3"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 19, "product_name": "吡虫啉可湿性粉剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["吡虫啉"], "resistance_groups": ["IRAC 4A"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 20, "product_name": "噻虫嗪水分散粒剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": [], "warning_messages": [], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["噻虫嗪"], "resistance_groups": ["IRAC 4A"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 21, "product_name": "螺虫乙酯悬浮剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 7, "active_ingredients": ["螺虫乙酯"], "resistance_groups": ["IRAC 23"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 22, "product_name": "乙基多杀菌素悬浮剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 3, "active_ingredients": ["乙基多杀菌素"], "resistance_groups": ["IRAC 5"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 23, "product_name": "氯虫苯甲酰胺悬浮剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["氯虫苯甲酰胺"], "resistance_groups": ["IRAC 28"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 24, "product_name": "甲氨基阿维菌素苯甲酸盐乳油", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 7, "active_ingredients": ["甲氨基阿维菌素苯甲酸盐"], "resistance_groups": ["IRAC 6"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 25, "product_name": "虫螨腈悬浮剂", "passed": false, "blocked_reasons": ["target_mismatch"], "blocked_messages": ["这个药不是针对这个问题登记的，用了可能没效果"], "warnings": [], "warning_messages": [], "matched": {"crop": true, "target": false, "stage": true}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["虫螨腈"], "resistance_groups": ["IRAC 13"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 26, "product_name": "联苯肼酯悬浮剂", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": [], "warning_messages": [], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 14, "active_ingredients": ["联苯肼酯"], "resistance_groups": ["IRAC 25A"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}, {"product_id": 27, "product_name": "哒螨灵乳油", "passed": false, "blocked_reasons": ["crop_mismatch", "target_mismatch", "stage_mismatch"], "blocked_messages": ["这个药没有登记在你种的作物上，不建议使用", "这个药不是针对这个问题登记的，用了可能没效果", "当前生长阶段不适合用这个药"], "warnings": ["safety_interval"], "warning_messages": ["离采收期太近，安全间隔期可能不够"], "matched": {"crop": false, "target": false, "stage": false}, "label_dosage_text": "具体用量、稀释倍数、兑水量以产品标签标注为准（本条目不录入具体数字）", "safety_interval_days": 21, "active_ingredients": ["哒螨灵"], "resistance_groups": ["IRAC 21A"], "source_url": "http://www.chinapesticide.org.cn/", "data_verified_at": "2026-09-24"}], "message": "没有找到符合条件的登记农药。请以当前产品标签为准，或咨询当地植保部门。", "hard_blocked": true}, "tasks_created": [364, 363], "degraded": true, "llm_model": null, "token_usage": {"streamed": true}, "errors": []}
+
+event: done
+data: {"state": "done", "intent": "diagnosis", "intent_label": "病虫害诊断"}
+

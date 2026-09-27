@@ -228,5 +228,40 @@ class LLMClient:
                                               input=texts)
         return [d.embedding for d in resp.data]
 
+    async def chat_with_tools(self, messages: list[dict], tools: list[dict],
+                              **kw) -> dict:
+        """Function calling 一轮：返回原始消息结构（含 tool_calls），供工具循环续写。
+
+        ★ 为什么不复用 chat()：chat() 只回文本，而 OpenAI 工具协议要求把
+          assistant 的 tool_calls（含 id）原样塞回 messages、再逐个跟 tool
+          结果消息 —— 必须保留 id / name / arguments 的原始结构。
+        端点不支持 tools 参数时（部分兼容网关），openai SDK 会抛
+        BadRequestError，这里统一转成 LLMUnavailable，让上层走固定管线降级。
+        """
+        eps = _endpoints()
+        if not eps:
+            raise LLMUnavailable("未配置 LLM_API_KEY")
+        base_url, api_key, default_model = eps[0]
+        client = self._get(base_url, api_key)
+        if client is None:
+            raise LLMUnavailable("客户端不可用")
+        model = kw.get("model") or default_model
+        try:
+            resp = await client.chat.completions.create(
+                model=model, messages=messages, tools=tools,
+                tool_choice=kw.get("tool_choice", "auto"),
+                temperature=kw.get("temperature", 0.2),
+                max_tokens=kw.get("max_tokens", 500))
+        except Exception as exc:  # noqa: BLE001
+            raise LLMUnavailable(f"工具调用失败（端点可能不支持 tools）: {exc}") from exc
+        msg = resp.choices[0].message
+        tool_calls = [
+            {"id": tc.id, "name": tc.function.name,
+             "arguments": tc.function.arguments or "{}"}
+            for tc in (msg.tool_calls or [])
+        ]
+        return {"content": msg.content or "", "tool_calls": tool_calls,
+                "model": model}
+
 
 llm = LLMClient()

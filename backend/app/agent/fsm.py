@@ -20,9 +20,10 @@ import time
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app.agent import prompts
 from app.agent.prompts import (CONSULT_SYSTEM, COMPOSE_SYSTEM, INTENT_SCHEMA,
                                INTENT_SYSTEM, build_retrieval_block,
-                               build_rule_block)
+                               build_rule_block, history_block)
 from app.agent.state import (INTENT_ROUTES, MAIN_CHAIN, AgentContext, AgentState)
 from app.core.config import settings
 from app.models.diagnosis import (ST_FAILED, ST_NEEDS_MORE_INFO, ST_REJECTED,
@@ -83,11 +84,17 @@ class AgriAgent:
             AgentState.CONTEXT: self._node_context,
             AgentState.DIAGNOSE: self._node_diagnose,
             AgentState.RETRIEVE: self._node_retrieve,
+            AgentState.TOOL_LOOP: self._node_tool_loop,
             AgentState.RULE_CHECK: self._node_rule_check,
             AgentState.COMPOSE: self._node_compose,
             AgentState.PERSIST: self._node_persist,
             AgentState.REMIND: self._node_remind,
         }
+
+        # 多轮记忆：run 开始时把本会话最近几轮读进 ctx.history ——
+        # intent 靠它识别「那辣椒呢」是在追问，compose 靠它不重复已说过的结论
+        if ctx.session_id:
+            ctx.history = self._load_history(ctx)
 
         ctx.state = AgentState.INTENT
         route: list[AgentState] | None = None
@@ -151,7 +158,7 @@ class AgriAgent:
             if route and nxt not in route and nxt not in (
                     AgentState.NEEDS_MORE_INFO, AgentState.REJECTED,
                     AgentState.FAILED):
-                nxt = self._next_in_route(nxt, route) or AgentState.DONE
+                nxt = self._next_in_route(node, nxt, route) or AgentState.DONE
 
             ctx.state = nxt
 
@@ -165,18 +172,22 @@ class AgriAgent:
         return ctx
 
     @staticmethod
-    def _next_in_route(nxt: AgentState, route: list[AgentState]) -> AgentState | None:
-        """把不在路线里的目标态替换成路线中下一个合法节点。"""
+    def _next_in_route(node: AgentState, nxt: AgentState,
+                       route: list[AgentState]) -> AgentState | None:
+        """把不在路线里的目标态替换成路线中下一个合法节点。
+
+        ★ 兜底必须沿**路线**而不是主链找：consult 路线里的 TOOL_LOOP 不在
+          主链上——旧写法沿 MAIN_CHAIN 往后找，CONTEXT 返回 DIAGNOSE 后会
+          一路跳过 TOOL_LOOP 直达 COMPOSE，工具循环永远不执行（实测踩过）。
+        """
         if nxt in route:
             return nxt
-        try:
-            idx = route.index(nxt)
-        except ValueError:
-            # 目标态不在路线里，沿主链路往后找第一个在路线里的
-            for cand in MAIN_CHAIN[MAIN_CHAIN.index(nxt):] if nxt in MAIN_CHAIN else []:
-                if cand in route:
+        if node in route:
+            idx = route.index(node)
+            for cand in route[idx + 1:]:
+                if cand != node:
                     return cand
-            return AgentState.DONE
+        return AgentState.DONE
         del idx
         return AgentState.DONE
 
@@ -186,7 +197,26 @@ class AgriAgent:
         try:
             return MAIN_CHAIN[MAIN_CHAIN.index(node) + 1]
         except (ValueError, IndexError):
-            return AgentState.DONE
+            # TOOL_LOOP 等不在主链路上的节点：跳过它本身，向 COMPOSE 推进 ——
+            # 工具循环失败大不了没有工具证据，compose 用检索结果兜底
+            return AgentState.COMPOSE
+
+    def _load_history(self, ctx: AgentContext) -> list[dict[str, str]]:
+        """读本会话最近几条消息（从旧到新）。失败返回空 ——
+        历史读不到只影响连续性，绝不能挡住本次提问。"""
+        try:
+            rows = list(self.db.scalars(
+                select(ChatMessage)
+                .where(ChatMessage.session_id == ctx.session_id,
+                       ChatMessage.user_id == ctx.user_id,
+                       ChatMessage.role.in_(["user", "assistant"]))
+                .order_by(ChatMessage.id.desc())
+                .limit(prompts.HISTORY_MAX_MESSAGES)).all())
+        except Exception:  # noqa: BLE001
+            logger.warning("会话历史加载失败，按无历史继续", exc_info=True)
+            return []
+        rows.reverse()
+        return [{"role": r.role, "content": r.content or ""} for r in rows]
 
     # ================================================================== #
     # 节点 1：意图识别
@@ -195,9 +225,15 @@ class AgriAgent:
         ctx.intent = self._heuristic_intent(ctx)
         if settings.llm_enabled and not ctx.has_images:
             try:
+                # ★ 历史必须进意图识别：「那辣椒呢」单独看是病句（辣椒怎么了？），
+                #   带上上一轮「番茄叶子发黄怎么办」才能识别成追问诊断、
+                #   并解析出作物=辣椒 —— 这是多轮记忆的第一用途
+                hist = history_block(ctx.history)
+                user_content = (hist + "\n\n" if hist else "") + \
+                    f"当前问题：{ctx.query or '（无文字描述）'}"
                 data, _ = await llm.chat_json(
                     [{"role": "system", "content": INTENT_SYSTEM},
-                     {"role": "user", "content": ctx.query or "（无文字描述）"}],
+                     {"role": "user", "content": user_content}],
                     schema_hint=INTENT_SCHEMA, temperature=0.0, max_tokens=200)
                 if isinstance(data, dict) and data.get("intent") in INTENT_ROUTES:
                     ctx.intent = data["intent"]
@@ -297,6 +333,33 @@ class AgriAgent:
     # ================================================================== #
     # 节点 4：RAG 检索 + 闸门 A
     # ================================================================== #
+    # ================================================================== #
+    # 节点 3.5：咨询路径的工具循环（consult 专属，见 state.py INTENT_ROUTES）
+    # ================================================================== #
+    async def _node_tool_loop(self, ctx: AgentContext) -> AgentState:
+        """LLM 自主决定调什么工具收集证据；失败/无模型时降级回固定检索。
+
+        ★ 降级路径必须真的能走通：工具循环依赖 Function calling 能力，
+          端点不支持时 LLMUnavailable 会从 llm.chat_with_tools 抛上来 ——
+          此时整条 consult 链路退回「固定检索 + 模板/普通生成」，功能不丢。
+        """
+        if not settings.llm_enabled:
+            ctx.degraded = True
+            return await self._node_retrieve(ctx)
+        try:
+            from app.agent.tool_loop import run_tool_loop
+            out = await run_tool_loop(
+                ctx, self.db, max_rounds=settings.tool_loop_max_rounds)
+        except LLMUnavailable as exc:
+            logger.warning("工具循环不可用，consult 降级为固定检索: %s", exc)
+            ctx.degraded = True
+            ctx.errors.append(f"tool_loop: {exc}")
+            return await self._node_retrieve(ctx)
+        logger.info("工具循环完成：rounds=%s evidence=%s calls=%s",
+                    out["rounds"], len(out["evidence"]),
+                    sum(1 for t in ctx.tool_calls if t.get("node") == "tool_loop"))
+        return AgentState.COMPOSE
+
     async def _node_retrieve(self, ctx: AgentContext) -> AgentState:
         crop_rows = list(self.db.scalars(
             select(Crop).where(Crop.deleted_at.is_(None))).all())
@@ -523,9 +586,16 @@ class AgriAgent:
                 logger.warning("生成回答降级: %s", exc)
                 ctx.degraded = True
                 ctx.answer = self._compose_by_template(ctx)
+                # 流式通道在降级时也要有产出：整段作为单个 delta 推出，
+                # 前端的打字机区域不会空白（与真实流式同一事件协议）
+                if ctx.stream_queue is not None:
+                    await ctx.stream_queue.put(
+                        {"type": "delta", "text": ctx.answer})
         else:
             ctx.degraded = True
             ctx.answer = self._compose_by_template(ctx)
+            if ctx.stream_queue is not None:
+                await ctx.stream_queue.put({"type": "delta", "text": ctx.answer})
 
         # ---- 输出护栏：剂量拦截 + 白名单外产品提示 + 免责声明 ----
         whitelist = [c.product_name for c in
@@ -546,6 +616,7 @@ class AgriAgent:
         vision = ctx.user_context.get("vision") or {}
         top1 = self._resolve_top1(ctx)
         shown = self._display_disease(ctx, top1)
+        hist = history_block(ctx.history)
         facts = [
             f"用户问题：{ctx.query or '（仅上传了照片）'}",
             f"作物：{ctx.crop_name or '未提供'}",
@@ -566,6 +637,17 @@ class AgriAgent:
             facts.append("用户近期用药记录：" +
                          str(ctx.user_context["recent_usage"])[:400])
 
+        # ---- 证据来源二选一：诊断走固定检索块，consult 走工具循环证据 ----
+        if ctx.tool_loop_evidence:
+            from app.agent.tool_loop import build_evidence_block
+            evidence_block = "【工具收集到的信息】\n" \
+                + build_evidence_block(ctx.tool_loop_evidence)
+        else:
+            evidence_block = "【知识库检索结果】\n" + build_retrieval_block(chunks)
+            ctx.citations = [{"index": i, "title": c.title,
+                              "source": c.source_name, "url": c.source_url}
+                             for i, c in enumerate(chunks, start=1)]
+
         # 与模板通道同一套判定：没确诊就不把放行产品交给模型，
         # 否则模型会「照着清单念」，等于绕过置信度闸门推荐了药。
         confident = bool(ctx.confidence and ctx.confidence.passed)
@@ -575,21 +657,36 @@ class AgriAgent:
 
         user_msg = (
             "\n".join(facts)
-            + "\n\n【知识库检索结果】\n" + build_retrieval_block(chunks)
+            + ("\n\n" + hist if hist else "")
+            + "\n\n" + evidence_block
             + "\n\n【规则引擎已放行产品（只能引用这些）】\n"
             + (build_rule_block(ctx.rule_result) if allow_products
                else "（本轮结论置信度不足，禁止推荐任何具体农药，"
                     "只能给非用药处理建议并提示用户补充照片或咨询植保员）")
+            + ("\n\n如提供了对话历史，请避免重复上一轮已经说过的结论，"
+               "直接回应本次的追问。" if hist else "")
             + "\n\n请按三段式输出回答。"
         )
-        res = await llm.chat([{"role": "system", "content": system},
-                              {"role": "user", "content": user_msg}],
-                             temperature=0.3, max_tokens=900)
+        messages = [{"role": "system", "content": system},
+                    {"role": "user", "content": user_msg}]
+
+        # ---- 流式分支：SSE 路由注入了队列就走真 token 流，边生成边推 ----
+        # ★ 流出去的是「护栏前」的原文，final 事件才是护栏后（剂量拦截等）
+        #   的权威版本 —— 前端以 final 覆盖，极端情况下用户会看到个别句子
+        #   被 final 收回，这是把「立刻看到字」与「输出合规」同时保住的折中。
+        if ctx.stream_queue is not None:
+            buf: list[str] = []
+            async for piece in llm.stream(messages, temperature=0.3):
+                buf.append(piece)
+                await ctx.stream_queue.put({"type": "delta", "text": piece})
+            text = "".join(buf)
+            ctx.llm_model = None        # stream 路径拿不到 usage/model 元数据
+            ctx.token_usage = {"streamed": True}
+            return text
+
+        res = await llm.chat(messages, temperature=0.3, max_tokens=900)
         ctx.llm_model = res.model
         ctx.token_usage = res.usage
-        ctx.citations = [{"index": i, "title": c.title,
-                          "source": c.source_name, "url": c.source_url}
-                         for i, c in enumerate(chunks, start=1)]
         return res.text
 
     # ------------------------------------------------------------------ #

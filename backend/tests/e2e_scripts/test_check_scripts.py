@@ -62,6 +62,14 @@ def test_check_classifier_wiring_script():
 
 @pytest.mark.e2e
 @pytest.mark.skipif(not _port_open(5432), reason="PostgreSQL 未运行")
+def test_check_tool_loop_script():
+    r = _run(SCRIPTS / "check_tool_loop.py")
+    assert r.returncode == 0, r.stdout + r.stderr
+    assert "全部 6 项通过" in r.stdout
+
+
+@pytest.mark.e2e
+@pytest.mark.skipif(not _port_open(5432), reason="PostgreSQL 未运行")
 def test_check_retrieval_eval():
     r = _run(SCRIPTS / "check_retrieval.py", timeout=600)
     assert r.returncode == 0, r.stdout[-2000:] + r.stderr[-2000:]

@@ -234,6 +234,16 @@
         steps.push({ node: d.node, status: 'ok', elapsed_ms: d.elapsed_ms });
         el.querySelector('#traceBox').innerHTML = ui.traceBlock(steps);
         setTip(el, '正在' + ui.nodeLabel(d.node) + '…');
+      } else if (ev === 'delta') {
+        // token 级流式：回答在「生成回答」节点开始吐字。
+        // 进度卡片里就地建一块实时文字区；final 到达时整块被权威结果替换。
+        var live = el.querySelector('#liveAnswer');
+        if (!live) {
+          progBox.querySelector('.card-body').insertAdjacentHTML('beforeend',
+            '<div id="liveAnswer" class="mt-3" style="white-space:pre-wrap;line-height:1.7"></div>');
+        }
+        el.querySelector('#liveAnswer').textContent += (d.text || '');
+        setTip(el, '正在生成回答…');
       } else if (ev === 'final') {
         progBox.innerHTML = '';
         el.querySelector('#result').innerHTML = resultHtml(d);

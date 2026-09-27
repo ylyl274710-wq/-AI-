@@ -115,6 +115,9 @@ class Settings(BaseSettings):
     classifier_top_k: int = 3
     classifier_min_prob: float = 0.15
 
+    # ---------------- 咨询工具循环 ----------------
+    tool_loop_max_rounds: int = 3
+
     # ---------------- 认证 ----------------
     jwt_secret: str = "dev-only-change-me-in-production"
     jwt_algorithm: str = "HS256"

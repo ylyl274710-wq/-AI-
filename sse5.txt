@@ -1,0 +1,1200 @@
+event: start
+data: {"session_id": "p1-tool-v3", "images": 0}
+
+event: progress
+data: {"type": "trace", "node": "intent", "next": "context", "elapsed_ms": 7453, "detail": "", "steps": 1}
+
+event: progress
+data: {"type": "trace", "node": "context", "next": "retrieve", "elapsed_ms": 0, "detail": "", "steps": 2}
+
+event: delta
+data: {"type": "delta", "text": "【"}
+
+event: delta
+data: {"type": "delta", "text": "发现"}
+
+event: delta
+data: {"type": "delta", "text": "什么"}
+
+event: delta
+data: {"type": "delta", "text": "】"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "从"}
+
+event: delta
+data: {"type": "delta", "text": "你的"}
+
+event: delta
+data: {"type": "delta", "text": "描述"}
+
+event: delta
+data: {"type": "delta", "text": "看"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "大棚"}
+
+event: delta
+data: {"type": "delta", "text": "里"}
+
+event: delta
+data: {"type": "delta", "text": "湿度"}
+
+event: delta
+data: {"type": "delta", "text": "大"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "番茄"}
+
+event: delta
+data: {"type": "delta", "text": "在"}
+
+event: delta
+data: {"type": "delta", "text": "结果"}
+
+event: delta
+data: {"type": "delta", "text": "期"}
+
+event: delta
+data: {"type": "delta", "text": "容易"}
+
+event: delta
+data: {"type": "delta", "text": "得"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "但"}
+
+event: delta
+data: {"type": "delta", "text": "具体"}
+
+event: delta
+data: {"type": "delta", "text": "是什么"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "（"}
+
+event: delta
+data: {"type": "delta", "text": "比如"}
+
+event: delta
+data: {"type": "delta", "text": "灰"}
+
+event: delta
+data: {"type": "delta", "text": "霉"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "晚"}
+
+event: delta
+data: {"type": "delta", "text": "疫"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "叶"}
+
+event: delta
+data: {"type": "delta", "text": "霉"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "等"}
+
+event: delta
+data: {"type": "delta", "text": "）"}
+
+event: delta
+data: {"type": "delta", "text": "现在"}
+
+event: delta
+data: {"type": "delta", "text": "没法"}
+
+event: delta
+data: {"type": "delta", "text": "确定"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "因为"}
+
+event: delta
+data: {"type": "delta", "text": "不同"}
+
+event: delta
+data: {"type": "delta", "text": "病害"}
+
+event: delta
+data: {"type": "delta", "text": "症状"}
+
+event: delta
+data: {"type": "delta", "text": "很像"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "光"}
+
+event: delta
+data: {"type": "delta", "text": "说"}
+
+event: delta
+data: {"type": "delta", "text": "“"}
+
+event: delta
+data: {"type": "delta", "text": "湿度"}
+
+event: delta
+data: {"type": "delta", "text": "大"}
+
+event: delta
+data: {"type": "delta", "text": "”"}
+
+event: delta
+data: {"type": "delta", "text": "不能"}
+
+event: delta
+data: {"type": "delta", "text": "判断"}
+
+event: delta
+data: {"type": "delta", "text": "是哪"}
+
+event: delta
+data: {"type": "delta", "text": "一种"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "而且"}
+
+event: delta
+data: {"type": "delta", "text": "你"}
+
+event: delta
+data: {"type": "delta", "text": "也没"}
+
+event: delta
+data: {"type": "delta", "text": "发"}
+
+event: delta
+data: {"type": "delta", "text": "照片"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "我"}
+
+event: delta
+data: {"type": "delta", "text": "这边"}
+
+event: delta
+data: {"type": "delta", "text": "看不到"}
+
+event: delta
+data: {"type": "delta", "text": "叶片"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "果实"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "茎"}
+
+event: delta
+data: {"type": "delta", "text": "秆"}
+
+event: delta
+data: {"type": "delta", "text": "的具体"}
+
+event: delta
+data: {"type": "delta", "text": "样子"}
+
+event: delta
+data: {"type": "delta", "text": "。\n\n"}
+
+event: delta
+data: {"type": "delta", "text": "【"}
+
+event: delta
+data: {"type": "delta", "text": "现在"}
+
+event: delta
+data: {"type": "delta", "text": "做什么"}
+
+event: delta
+data: {"type": "delta", "text": "】"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "先"}
+
+event: delta
+data: {"type": "delta", "text": "别"}
+
+event: delta
+data: {"type": "delta", "text": "急着"}
+
+event: delta
+data: {"type": "delta", "text": "打"}
+
+event: delta
+data: {"type": "delta", "text": "药"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "重点"}
+
+event: delta
+data: {"type": "delta", "text": "把"}
+
+event: delta
+data: {"type": "delta", "text": "大棚"}
+
+event: delta
+data: {"type": "delta", "text": "湿度"}
+
+event: delta
+data: {"type": "delta", "text": "降"}
+
+event: delta
+data: {"type": "delta", "text": "下来"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "这是"}
+
+event: delta
+data: {"type": "delta", "text": "最"}
+
+event: delta
+data: {"type": "delta", "text": "要紧"}
+
+event: delta
+data: {"type": "delta", "text": "的"}
+
+event: delta
+data: {"type": "delta", "text": "："}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "1"}
+
+event: delta
+data: {"type": "delta", "text": "."}
+
+event: delta
+data: {"type": "delta", "text": " "}
+
+event: delta
+data: {"type": "delta", "text": "晴天"}
+
+event: delta
+data: {"type": "delta", "text": "上午"}
+
+event: delta
+data: {"type": "delta", "text": "及时"}
+
+event: delta
+data: {"type": "delta", "text": "通风"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "别"}
+
+event: delta
+data: {"type": "delta", "text": "等"}
+
+event: delta
+data: {"type": "delta", "text": "中午"}
+
+event: delta
+data: {"type": "delta", "text": "才"}
+
+event: delta
+data: {"type": "delta", "text": "开"}
+
+event: delta
+data: {"type": "delta", "text": "风口"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "早上"}
+
+event: delta
+data: {"type": "delta", "text": "露"}
+
+event: delta
+data: {"type": "delta", "text": "水"}
+
+event: delta
+data: {"type": "delta", "text": "干了"}
+
+event: delta
+data: {"type": "delta", "text": "就"}
+
+event: delta
+data: {"type": "delta", "text": "慢慢"}
+
+event: delta
+data: {"type": "delta", "text": "放"}
+
+event: delta
+data: {"type": "delta", "text": "风"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "2"}
+
+event: delta
+data: {"type": "delta", "text": "."}
+
+event: delta
+data: {"type": "delta", "text": " "}
+
+event: delta
+data: {"type": "delta", "text": "浇水"}
+
+event: delta
+data: {"type": "delta", "text": "改成"}
+
+event: delta
+data: {"type": "delta", "text": "“"}
+
+event: delta
+data: {"type": "delta", "text": "膜"}
+
+event: delta
+data: {"type": "delta", "text": "下"}
+
+event: delta
+data: {"type": "delta", "text": "滴"}
+
+event: delta
+data: {"type": "delta", "text": "灌"}
+
+event: delta
+data: {"type": "delta", "text": "”"}
+
+event: delta
+data: {"type": "delta", "text": "或"}
+
+event: delta
+data: {"type": "delta", "text": "“"}
+
+event: delta
+data: {"type": "delta", "text": "沟"}
+
+event: delta
+data: {"type": "delta", "text": "灌"}
+
+event: delta
+data: {"type": "delta", "text": "”，"}
+
+event: delta
+data: {"type": "delta", "text": "别"}
+
+event: delta
+data: {"type": "delta", "text": "大水"}
+
+event: delta
+data: {"type": "delta", "text": "漫"}
+
+event: delta
+data: {"type": "delta", "text": "灌"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "浇"}
+
+event: delta
+data: {"type": "delta", "text": "完"}
+
+event: delta
+data: {"type": "delta", "text": "水"}
+
+event: delta
+data: {"type": "delta", "text": "当天"}
+
+event: delta
+data: {"type": "delta", "text": "下午"}
+
+event: delta
+data: {"type": "delta", "text": "再"}
+
+event: delta
+data: {"type": "delta", "text": "通"}
+
+event: delta
+data: {"type": "delta", "text": "一次"}
+
+event: delta
+data: {"type": "delta", "text": "风"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "3"}
+
+event: delta
+data: {"type": "delta", "text": "."}
+
+event: delta
+data: {"type": "delta", "text": " "}
+
+event: delta
+data: {"type": "delta", "text": "地面"}
+
+event: delta
+data: {"type": "delta", "text": "铺"}
+
+event: delta
+data: {"type": "delta", "text": "地"}
+
+event: delta
+data: {"type": "delta", "text": "膜"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "减少"}
+
+event: delta
+data: {"type": "delta", "text": "土壤"}
+
+event: delta
+data: {"type": "delta", "text": "水分"}
+
+event: delta
+data: {"type": "delta", "text": "蒸发"}
+
+event: delta
+data: {"type": "delta", "text": "到"}
+
+event: delta
+data: {"type": "delta", "text": "空气"}
+
+event: delta
+data: {"type": "delta", "text": "里"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "4"}
+
+event: delta
+data: {"type": "delta", "text": "."}
+
+event: delta
+data: {"type": "delta", "text": " "}
+
+event: delta
+data: {"type": "delta", "text": "及时"}
+
+event: delta
+data: {"type": "delta", "text": "摘"}
+
+event: delta
+data: {"type": "delta", "text": "掉"}
+
+event: delta
+data: {"type": "delta", "text": "下部"}
+
+event: delta
+data: {"type": "delta", "text": "老"}
+
+event: delta
+data: {"type": "delta", "text": "叶"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "叶"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "带"}
+
+event: delta
+data: {"type": "delta", "text": "出"}
+
+event: delta
+data: {"type": "delta", "text": "大棚"}
+
+event: delta
+data: {"type": "delta", "text": "处理"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "别"}
+
+event: delta
+data: {"type": "delta", "text": "堆"}
+
+event: delta
+data: {"type": "delta", "text": "在"}
+
+event: delta
+data: {"type": "delta", "text": "棚"}
+
+event: delta
+data: {"type": "delta", "text": "里"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "5"}
+
+event: delta
+data: {"type": "delta", "text": "."}
+
+event: delta
+data: {"type": "delta", "text": " "}
+
+event: delta
+data: {"type": "delta", "text": "如果"}
+
+event: delta
+data: {"type": "delta", "text": "棚"}
+
+event: delta
+data: {"type": "delta", "text": "里"}
+
+event: delta
+data: {"type": "delta", "text": "湿"}
+
+event: delta
+data: {"type": "delta", "text": "气"}
+
+event: delta
+data: {"type": "delta", "text": "实在"}
+
+event: delta
+data: {"type": "delta", "text": "排"}
+
+event: delta
+data: {"type": "delta", "text": "不掉"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "可以考虑"}
+
+event: delta
+data: {"type": "delta", "text": "用"}
+
+event: delta
+data: {"type": "delta", "text": "生"}
+
+event: delta
+data: {"type": "delta", "text": "石灰"}
+
+event: delta
+data: {"type": "delta", "text": "撒"}
+
+event: delta
+data: {"type": "delta", "text": "在"}
+
+event: delta
+data: {"type": "delta", "text": "走"}
+
+event: delta
+data: {"type": "delta", "text": "道"}
+
+event: delta
+data: {"type": "delta", "text": "吸"}
+
+event: delta
+data: {"type": "delta", "text": "湿"}
+
+event: delta
+data: {"type": "delta", "text": "（"}
+
+event: delta
+data: {"type": "delta", "text": "注意"}
+
+event: delta
+data: {"type": "delta", "text": "别"}
+
+event: delta
+data: {"type": "delta", "text": "撒"}
+
+event: delta
+data: {"type": "delta", "text": "到"}
+
+event: delta
+data: {"type": "delta", "text": "植株"}
+
+event: delta
+data: {"type": "delta", "text": "上"}
+
+event: delta
+data: {"type": "delta", "text": "）。"}
+
+event: delta
+data: {"type": "delta", "text": "  \n\n"}
+
+event: delta
+data: {"type": "delta", "text": "另外"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "因为"}
+
+event: delta
+data: {"type": "delta", "text": "现在"}
+
+event: delta
+data: {"type": "delta", "text": "判断"}
+
+event: delta
+data: {"type": "delta", "text": "不了"}
+
+event: delta
+data: {"type": "delta", "text": "具体"}
+
+event: delta
+data: {"type": "delta", "text": "病害"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "我不"}
+
+event: delta
+data: {"type": "delta", "text": "建议"}
+
+event: delta
+data: {"type": "delta", "text": "你自己"}
+
+event: delta
+data: {"type": "delta", "text": "乱"}
+
+event: delta
+data: {"type": "delta", "text": "用药"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "最好"}
+
+event: delta
+data: {"type": "delta", "text": "拍"}
+
+event: delta
+data: {"type": "delta", "text": "几张"}
+
+event: delta
+data: {"type": "delta", "text": "清楚"}
+
+event: delta
+data: {"type": "delta", "text": "的照片"}
+
+event: delta
+data: {"type": "delta", "text": "——"}
+
+event: delta
+data: {"type": "delta", "text": "要"}
+
+event: delta
+data: {"type": "delta", "text": "拍"}
+
+event: delta
+data: {"type": "delta", "text": "叶片"}
+
+event: delta
+data: {"type": "delta", "text": "正面"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "背面"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "果实"}
+
+event: delta
+data: {"type": "delta", "text": "上的"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "斑"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "还有"}
+
+event: delta
+data: {"type": "delta", "text": "整"}
+
+event: delta
+data: {"type": "delta", "text": "株"}
+
+event: delta
+data: {"type": "delta", "text": "的样子"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "发给"}
+
+event: delta
+data: {"type": "delta", "text": "当地"}
+
+event: delta
+data: {"type": "delta", "text": "植"}
+
+event: delta
+data: {"type": "delta", "text": "保"}
+
+event: delta
+data: {"type": "delta", "text": "员"}
+
+event: delta
+data: {"type": "delta", "text": "或"}
+
+event: delta
+data: {"type": "delta", "text": "农"}
+
+event: delta
+data: {"type": "delta", "text": "技"}
+
+event: delta
+data: {"type": "delta", "text": "站"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "让他们"}
+
+event: delta
+data: {"type": "delta", "text": "确认"}
+
+event: delta
+data: {"type": "delta", "text": "后再"}
+
+event: delta
+data: {"type": "delta", "text": "决定"}
+
+event: delta
+data: {"type": "delta", "text": "要不要"}
+
+event: delta
+data: {"type": "delta", "text": "用药"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "用什么"}
+
+event: delta
+data: {"type": "delta", "text": "药"}
+
+event: delta
+data: {"type": "delta", "text": "。\n\n"}
+
+event: delta
+data: {"type": "delta", "text": "【"}
+
+event: delta
+data: {"type": "delta", "text": "什么时候"}
+
+event: delta
+data: {"type": "delta", "text": "再看"}
+
+event: delta
+data: {"type": "delta", "text": "】"}
+
+event: delta
+data: {"type": "delta", "text": "  \n"}
+
+event: delta
+data: {"type": "delta", "text": "先"}
+
+event: delta
+data: {"type": "delta", "text": "按"}
+
+event: delta
+data: {"type": "delta", "text": "上面"}
+
+event: delta
+data: {"type": "delta", "text": "通风"}
+
+event: delta
+data: {"type": "delta", "text": "降"}
+
+event: delta
+data: {"type": "delta", "text": "湿"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "清理"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "残"}
+
+event: delta
+data: {"type": "delta", "text": "体的"}
+
+event: delta
+data: {"type": "delta", "text": "方法"}
+
+event: delta
+data: {"type": "delta", "text": "管"}
+
+event: delta
+data: {"type": "delta", "text": "3"}
+
+event: delta
+data: {"type": "delta", "text": "～"}
+
+event: delta
+data: {"type": "delta", "text": "5"}
+
+event: delta
+data: {"type": "delta", "text": "天"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "观察"}
+
+event: delta
+data: {"type": "delta", "text": "新"}
+
+event: delta
+data: {"type": "delta", "text": "叶"}
+
+event: delta
+data: {"type": "delta", "text": "、"}
+
+event: delta
+data: {"type": "delta", "text": "新"}
+
+event: delta
+data: {"type": "delta", "text": "果"}
+
+event: delta
+data: {"type": "delta", "text": "上"}
+
+event: delta
+data: {"type": "delta", "text": "有没有"}
+
+event: delta
+data: {"type": "delta", "text": "继续"}
+
+event: delta
+data: {"type": "delta", "text": "出现"}
+
+event: delta
+data: {"type": "delta", "text": "病"}
+
+event: delta
+data: {"type": "delta", "text": "斑"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "如果"}
+
+event: delta
+data: {"type": "delta", "text": "病情"}
+
+event: delta
+data: {"type": "delta", "text": "还在"}
+
+event: delta
+data: {"type": "delta", "text": "扩散"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "或者"}
+
+event: delta
+data: {"type": "delta", "text": "你"}
+
+event: delta
+data: {"type": "delta", "text": "拍"}
+
+event: delta
+data: {"type": "delta", "text": "好"}
+
+event: delta
+data: {"type": "delta", "text": "照片"}
+
+event: delta
+data: {"type": "delta", "text": "了"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "再"}
+
+event: delta
+data: {"type": "delta", "text": "带着"}
+
+event: delta
+data: {"type": "delta", "text": "照片"}
+
+event: delta
+data: {"type": "delta", "text": "来"}
+
+event: delta
+data: {"type": "delta", "text": "问"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "我"}
+
+event: delta
+data: {"type": "delta", "text": "帮你"}
+
+event: delta
+data: {"type": "delta", "text": "对照"}
+
+event: delta
+data: {"type": "delta", "text": "症状"}
+
+event: delta
+data: {"type": "delta", "text": "分析"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: delta
+data: {"type": "delta", "text": "我的"}
+
+event: delta
+data: {"type": "delta", "text": "知识"}
+
+event: delta
+data: {"type": "delta", "text": "库里"}
+
+event: delta
+data: {"type": "delta", "text": "目前"}
+
+event: delta
+data: {"type": "delta", "text": "没有"}
+
+event: delta
+data: {"type": "delta", "text": "针对"}
+
+event: delta
+data: {"type": "delta", "text": "“"}
+
+event: delta
+data: {"type": "delta", "text": "大棚"}
+
+event: delta
+data: {"type": "delta", "text": "湿度"}
+
+event: delta
+data: {"type": "delta", "text": "大"}
+
+event: delta
+data: {"type": "delta", "text": "”"}
+
+event: delta
+data: {"type": "delta", "text": "的"}
+
+event: delta
+data: {"type": "delta", "text": "通用"}
+
+event: delta
+data: {"type": "delta", "text": "用药"}
+
+event: delta
+data: {"type": "delta", "text": "资料"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "所以"}
+
+event: delta
+data: {"type": "delta", "text": "用药"}
+
+event: delta
+data: {"type": "delta", "text": "这块"}
+
+event: delta
+data: {"type": "delta", "text": "必须"}
+
+event: delta
+data: {"type": "delta", "text": "等"}
+
+event: delta
+data: {"type": "delta", "text": "确认"}
+
+event: delta
+data: {"type": "delta", "text": "病害"}
+
+event: delta
+data: {"type": "delta", "text": "后"}
+
+event: delta
+data: {"type": "delta", "text": "，"}
+
+event: delta
+data: {"type": "delta", "text": "由"}
+
+event: delta
+data: {"type": "delta", "text": "系统"}
+
+event: delta
+data: {"type": "delta", "text": "规则"}
+
+event: progress
+data: {"type": "trace", "node": "compose", "next": "persist", "elapsed_ms": 14125, "detail": "", "steps": 3}
+
+event: progress
+data: {"type": "trace", "node": "persist", "next": "remind", "elapsed_ms": 15, "detail": "", "steps": 4}
+
+event: progress
+data: {"type": "final", "state": "done", "intent": "consult", "answer": "【发现什么】  \n从你的描述看，大棚里湿度大，番茄在结果期容易得病，但具体是什么病（比如灰霉病、晚疫病、叶霉病等）现在没法确定。因为不同病害症状很像，光说“湿度大”不能判断是哪一种。而且你也没发照片，我这边看不到叶片、果实、茎秆的具体样子。\n\n【现在做什么】  \n先别急着打药，重点把大棚湿度降下来，这是最要紧的：  \n1. 晴天上午及时通风，别等中午才开风口，早上露水干了就慢慢放风。  \n2. 浇水改成“膜下滴灌”或“沟灌”，别大水漫灌，浇完水当天下午再通一次风。  \n3. 地面铺地膜，减少土壤水分蒸发到空气里。  \n4. 及时摘掉下部老叶、病叶、病果，带出大棚处理，别堆在棚里。  \n5. 如果棚里湿气实在排不掉，可以考虑用生石灰撒在走道吸湿（注意别撒到植株上）。  \n\n另外，因为现在判断不了具体病害，我不建议你自己乱用药。最好拍几张清楚的照片——要拍叶片正面、背面、果实上的病斑，还有整株的样子，发给当地植保员或农技站，让他们确认后再决定要不要用药、用什么药。\n\n【什么时候再看】  \n先按上面通风降湿、清理病残体的方法管3～5天，观察新叶、新果上有没有继续出现病斑。如果病情还在扩散，或者你拍好照片了，再带着照片来问，我帮你对照症状分析。我的知识库里目前没有针对“大棚湿度大”的通用用药资料，所以用药这块必须等确认病害后，由系统规则引擎或植保员来定。"}
+
+event: delta
+data: {"type": "delta", "text": "引擎"}
+
+event: delta
+data: {"type": "delta", "text": "或"}
+
+event: delta
+data: {"type": "delta", "text": "植"}
+
+event: delta
+data: {"type": "delta", "text": "保"}
+
+event: delta
+data: {"type": "delta", "text": "员"}
+
+event: delta
+data: {"type": "delta", "text": "来"}
+
+event: delta
+data: {"type": "delta", "text": "定"}
+
+event: delta
+data: {"type": "delta", "text": "。"}
+
+event: final
+data: {"diagnosis_id": 314, "session_id": "p1-tool-v3", "state": "done", "intent": "consult", "answer": "【发现什么】  \n从你的描述看，大棚里湿度大，番茄在结果期容易得病，但具体是什么病（比如灰霉病、晚疫病、叶霉病等）现在没法确定。因为不同病害症状很像，光说“湿度大”不能判断是哪一种。而且你也没发照片，我这边看不到叶片、果实、茎秆的具体样子。\n\n【现在做什么】  \n先别急着打药，重点把大棚湿度降下来，这是最要紧的：  \n1. 晴天上午及时通风，别等中午才开风口，早上露水干了就慢慢放风。  \n2. 浇水改成“膜下滴灌”或“沟灌”，别大水漫灌，浇完水当天下午再通一次风。  \n3. 地面铺地膜，减少土壤水分蒸发到空气里。  \n4. 及时摘掉下部老叶、病叶、病果，带出大棚处理，别堆在棚里。  \n5. 如果棚里湿气实在排不掉，可以考虑用生石灰撒在走道吸湿（注意别撒到植株上）。  \n\n另外，因为现在判断不了具体病害，我不建议你自己乱用药。最好拍几张清楚的照片——要拍叶片正面、背面、果实上的病斑，还有整株的样子，发给当地植保员或农技站，让他们确认后再决定要不要用药、用什么药。\n\n【什么时候再看】  \n先按上面通风降湿、清理病残体的方法管3～5天，观察新叶、新果上有没有继续出现病斑。如果病情还在扩散，或者你拍好照片了，再带着照片来问，我帮你对照症状分析。我的知识库里目前没有针对“大棚湿度大”的通用用药资料，所以用药这块必须等确认病害后，由系统规则引擎或植保员来定。", "answer_sections": {"发现什么": "从你的描述看，大棚里湿度大，番茄在结果期容易得病，但具体是什么病（比如灰霉病、晚疫病、叶霉病等）现在没法确定。因为不同病害症状很像，光说“湿度大”不能判断是哪一种。而且你也没发照片，我这边看不到叶片、果实、茎秆的具体样子。", "现在做什么": "先别急着打药，重点把大棚湿度降下来，这是最要紧的：  \n1. 晴天上午及时通风，别等中午才开风口，早上露水干了就慢慢放风。  \n2. 浇水改成“膜下滴灌”或“沟灌”，别大水漫灌，浇完水当天下午再通一次风。  \n3. 地面铺地膜，减少土壤水分蒸发到空气里。  \n4. 及时摘掉下部老叶、病叶、病果，带出大棚处理，别堆在棚里。  \n5. 如果棚里湿气实在排不掉，可以考虑用生石灰撒在走道吸湿（注意别撒到植株上）。  \n\n另外，因为现在判断不了具体病害，我不建议你自己乱用药。最好拍几张清楚的照片——要拍叶片正面、背面、果实上的病斑，还有整株的样子，发给当地植保员或农技站，让他们确认后再决定要不要用药、用什么药。", "什么时候再看": "先按上面通风降湿、清理病残体的方法管3～5天，观察新叶、新果上有没有继续出现病斑。如果病情还在扩散，或者你拍好照片了，再带着照片来问，我帮你对照症状分析。我的知识库里目前没有针对“大棚湿度大”的通用用药资料，所以用药这块必须等确认病害后，由系统规则引擎或植保员来定。"}, "top1": null, "confidence": null, "citations": [], "trace": [{"node": "intent", "status": "ok", "elapsed_ms": 7453, "detail": null, "tools": []}, {"node": "context", "status": "ok", "elapsed_ms": 0, "detail": null, "tools": []}, {"node": "compose", "status": "ok", "elapsed_ms": 14125, "detail": null, "tools": []}, {"node": "persist", "status": "ok", "elapsed_ms": 15, "detail": null, "tools": []}], "tool_calls": [{"node": "context", "tool": "load_farm_context", "ok": true, "elapsed_ms": 0, "attempt": 1, "high_risk": false}], "risk": [], "rule": null, "tasks_created": [], "degraded": false, "llm_model": null, "token_usage": {"streamed": true}, "errors": []}
+
+event: done
+data: {"state": "done", "intent": "consult", "intent_label": "农业咨询"}
+

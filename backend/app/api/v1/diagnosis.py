@@ -11,6 +11,7 @@
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import uuid
 
@@ -232,11 +233,13 @@ async def diagnose_stream(
             events.append(ev)
 
         agent = AgriAgent(db, on_event=on_event)
+        # token 流式通道：compose 生成回答时逐段推进 ctx.stream_queue，
+        # 这里排空后以 delta 事件转发 —— 一次性路由不注入队列，行为不变
+        ctx.stream_queue = asyncio.Queue()
 
         yield _sse("start", {"session_id": ctx.session_id,
                              "images": len(images)})
 
-        import asyncio
         task = asyncio.create_task(agent.run(ctx))
 
         # 边跑边把已经产生的事件推出去。Agent 节点内部是异步的，
@@ -247,12 +250,16 @@ async def diagnose_stream(
             while cursor < len(events):
                 yield _sse("progress", events[cursor])
                 cursor += 1
+            while not ctx.stream_queue.empty():
+                yield _sse("delta", ctx.stream_queue.get_nowait())
             await asyncio.sleep(0.05)
 
         # 收尾：把剩余事件与终态一起送出去
         while cursor < len(events):
             yield _sse("progress", events[cursor])
             cursor += 1
+        while not ctx.stream_queue.empty():
+            yield _sse("delta", ctx.stream_queue.get_nowait())
 
         try:
             await task
