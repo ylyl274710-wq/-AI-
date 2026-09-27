@@ -85,6 +85,7 @@ async def vision_diagnose(*, ctx: AgentContext, db: Session, **_) -> dict:
     """多模态诊断。图片先压缩再送模型（文档难点 11 的成本控制）。"""
     del db
     data_urls: list[str] = []
+    raw_bytes: list[bytes] = []
     shots: list[str] = []
     # ★ 拍摄部位必须和图片一起收集，不能事后再按下标去配 ctx.image_shot_types：
     #   预处理失败的图会被 continue 跳过，导致 data_urls 比原列表短，
@@ -96,6 +97,7 @@ async def vision_diagnose(*, ctx: AgentContext, db: Session, **_) -> dict:
             logger.warning("图片预处理失败，跳过: %s", exc)
             continue
         data_urls.append(imaging.to_data_url(proc.main_bytes))
+        raw_bytes.append(proc.main_bytes)
         shots.append(ctx.image_shot_types[idx] if idx < len(ctx.image_shot_types) else "")
     if not data_urls:
         return {"candidates": [], "per_image_top1": [], "image_quality": "poor",
@@ -151,9 +153,12 @@ async def vision_diagnose(*, ctx: AgentContext, db: Session, **_) -> dict:
     try:
         from app.services import classifier as cls_svc
         if cls_svc.classifier.available and data_urls:
-            cls_top = cls_svc.classifier.predict(data_urls[0])
+            # ★ 必须传原始字节而不是 data URL——predict 期望 bytes，
+            #   传字符串会 TypeError 且被兜底吞掉（实测：候选静默消失）
+            cls_top = cls_svc.classifier.predict(raw_bytes[0])
             classifier_info = cls_top
             vlm_names = {str(c.get("name")) for c in candidates}
+            strong: list[dict] = []   # 分类器强信号候选：分数可复现，排到最前
             for item in cls_top:
                 if item["prob"] < settings.classifier_min_prob:
                     continue
@@ -164,12 +169,22 @@ async def vision_diagnose(*, ctx: AgentContext, db: Session, **_) -> dict:
                                 and not c.get("classifier_prob"):
                             c["classifier_prob"] = item["prob"]
                     continue
-                candidates.append({"name": item["standard_name"],
-                                   "source": "classifier",
-                                   "confidence": item["prob"]})
+                cand = {"name": item["standard_name"],
+                        "source": "classifier",
+                        "confidence": item["prob"]}
+                # ★ 强候选置顶：_resolve_top1 取列表第一项，分类器 0.9+ 的
+                #   概率必须压过 VLM 的低置信猜测，否则「识别」白做了
+                (strong if item["prob"] >= settings.classifier_strong_prob
+                 else candidates).append(cand)
+            strong.sort(key=lambda c: c["confidence"], reverse=True)
+            candidates[:0] = strong
     except Exception:  # noqa: BLE001
         logger.warning("分类器候选合并失败，忽略", exc_info=True)
 
+    logger.info(
+        "分类增强: available=%s cls_top=%s merged_candidates=%s",
+        getattr(cls_svc.classifier, "available", None) if 'cls_svc' in dir() else 'n/a',
+        len(classifier_info), len(candidates))
     return {
         "candidates": candidates,
         "per_image_top1": per_image,

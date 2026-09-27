@@ -114,6 +114,7 @@ class Settings(BaseSettings):
     classifier_labels_path: str = "models/pv_labels.json"
     classifier_top_k: int = 3
     classifier_min_prob: float = 0.15
+    classifier_strong_prob: float = 0.6  # 高于此值视为强信号，候选置顶
 
     # ---------------- 咨询工具循环 ----------------
     tool_loop_max_rounds: int = 3

@@ -83,6 +83,8 @@ def main() -> None:
     crit = nn.CrossEntropyLoss()
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=args.epochs)
+    # 4GB 显存（RTX 3050 Laptop）实测：FP32 batch 48 贴边，AMP 既是显存保险也是速度
+    scaler = torch.amp.GradScaler(device.type)
 
     best_acc = 0.0
     for epoch in range(1, args.epochs + 1):
@@ -91,10 +93,14 @@ def main() -> None:
         for imgs, ys in train_dl:
             imgs, ys = imgs.to(device), ys.to(device)
             opt.zero_grad()
-            loss = crit(model(imgs), ys)
-            loss.backward()
-            opt.step()
-            correct += (model(imgs).argmax(1) == ys).sum().item()
+            with torch.autocast(device_type=device.type,
+                                enabled=device.type == "cuda"):
+                loss = crit(model(imgs), ys)
+            scaler.scale(loss).backward()
+            scaler.step(opt)
+            scaler.update()
+            with torch.no_grad():
+                correct += (model(imgs).argmax(1) == ys).sum().item()
             total += ys.numel()
         sched.step()
         train_acc = correct / max(total, 1)

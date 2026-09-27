@@ -32,9 +32,29 @@ _INPUT_SIZE = 224
 
 
 @lru_cache(maxsize=1)
+def _project_root() -> Path:
+    """项目根（backend/app/services/classifier.py → 上三级）。
+
+    ★ 模型/标签路径必须锚定在这里，不能用 CWD 相对路径——uvicorn 的
+      工作目录是 backend/，`models/pv_classifier.onnx` 相对 CWD 会解析到
+      backend/models/（不存在），分类器静默停用且无任何报错（实测踩过）。
+    """
+    return Path(__file__).resolve().parents[3]
+
+
+def _model_path() -> Path:
+    p = Path(settings.classifier_model_path)
+    return p if p.is_absolute() else _project_root() / p
+
+
+def _labels_path() -> Path:
+    p = Path(settings.classifier_labels_path)
+    return p if p.is_absolute() else _project_root() / p
+
+
+@lru_cache(maxsize=1)
 def _load_label_map() -> dict:
-    path = Path(settings.classifier_labels_path)
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = json.loads(_labels_path().read_text(encoding="utf-8"))
     # 顺序即模型输出的类别顺序：按 labels 字典序生成训练脚本时必须同序
     labels = sorted(data["labels"].keys())
     return {"labels": labels,
@@ -54,7 +74,7 @@ class DiseaseClassifier:
     def available(self) -> bool:
         if not settings.classifier_enabled:
             return False
-        if not Path(settings.classifier_model_path).exists():
+        if not _model_path().exists():
             return False
         if importlib.util.find_spec("onnxruntime") is None:
             return False
@@ -72,7 +92,7 @@ class DiseaseClassifier:
         try:
             import onnxruntime as ort
             self._session = ort.InferenceSession(
-                settings.classifier_model_path, providers=["CPUExecutionProvider"])
+                str(_model_path()), providers=["CPUExecutionProvider"])
             logger.info("分类器模型已加载: %s", settings.classifier_model_path)
         except Exception:  # noqa: BLE001
             logger.warning("分类器模型加载失败，分类增强不可用", exc_info=True)
@@ -134,7 +154,7 @@ class DiseaseClassifier:
 
     def status(self) -> dict:
         return {"available": self.available,
-                "model_path": settings.classifier_model_path,
+                "model_path": str(_model_path()),
                 "labels": len(_load_label_map()["labels"]) if self.available else 0}
 
 

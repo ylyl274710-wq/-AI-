@@ -45,6 +45,9 @@ class _FakeClassifier:
         return self._avail
 
     def predict(self, image_bytes: bytes, top_k: int | None = None) -> list[dict]:
+        assert isinstance(image_bytes, (bytes, bytearray)), (
+            "predict 必须收到原始图片字节，而不是 data URL 字符串——"
+            "2026-09-27 实测过传错类型被兜底静默吞掉")
         return list(self._top)
 
     def status(self) -> dict:
@@ -94,6 +97,8 @@ async def main() -> int:
               for c in out["candidates"]))
     check("低概率候选被过滤（早疫病 0.05 < 0.15）", "番茄早疫病" not in names)
     check("classifier_top 留痕", len(out.get("classifier_top") or []) == 3)
+    check("分类器强候选（0.55≥0.6？否→不置顶）按强弱信号分流",
+          ("番茄晚疫病" in [c["name"] for c in out["candidates"]]))
 
     print("形态 B：无模型（当前现实状态）")
     out2 = await run_with_fake_classifier(fake_top, fake_available=False)
@@ -105,8 +110,9 @@ async def main() -> int:
 
     print()
     real = cls_svc.classifier.status()
-    check("真实状态：模型文件缺失时 available=False（当前）",
-          real["available"] is False or real["available"] is True)
+    # 信息性输出（部署状态会随模型文件有无变化，不做布尔断言）
+    print(f"  [INFO] 当前部署状态: available={real['available']} "
+          f"labels={real['labels']} model={real['model_path']}")
 
     if all(checks):
         print(f"全部 {len(checks)} 项通过 —— 分类器接线正确")

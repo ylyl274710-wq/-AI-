@@ -31,7 +31,8 @@ from app.core.security import get_current_user
 logger = logging.getLogger(__name__)
 from app.models.diagnosis import DiagnosisImage, DiagnosisRecord
 from app.models.user import User
-from app.schemas import (Citation, ConfidenceOut, DiagnoseOut, TraceStepOut)
+from app.schemas import (CandidateOut, Citation, ConfidenceOut, DiagnoseOut,
+                         TraceStepOut)
 
 router = APIRouter(prefix="/diagnosis", tags=["诊断"])
 
@@ -123,6 +124,12 @@ def _to_out(ctx: AgentContext) -> DiagnoseOut:
         session_id=ctx.session_id,
         state=ctx.state.value,
         intent=ctx.intent,
+        candidates=[CandidateOut(**{
+            "name": str(c.get("name") or ""),
+            "source": str(c.get("source") or "vlm"),
+            "confidence": c.get("confidence"),
+            "classifier_prob": c.get("classifier_prob"),
+        }) for c in (ctx.candidates or []) if c.get("name")],
         answer=ctx.answer or "",
         answer_sections=dict(ctx.answer_sections or {}),
         top1=ctx.user_context.get("top1"),

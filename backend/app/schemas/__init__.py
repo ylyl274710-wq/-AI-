@@ -210,6 +210,14 @@ class TraceStepOut(BaseModel):
     tools: list[str] = Field(default_factory=list)
 
 
+class CandidateOut(BaseModel):
+    """识别候选（VLM 与本地分类器合并后）。source: vlm / classifier。"""
+    name: str
+    source: str = "vlm"
+    confidence: float | None = None       # 分类器候选的概率（可复现）
+    classifier_prob: float | None = None  # VLM 候选被分类器确认时的概率
+
+
 class DiagnoseOut(BaseModel):
     diagnosis_id: int | None = None
     session_id: str = ""
@@ -218,6 +226,7 @@ class DiagnoseOut(BaseModel):
     answer: str = ""
     answer_sections: dict[str, str] = Field(default_factory=dict)
     top1: str | None = None
+    candidates: list[CandidateOut] = Field(default_factory=list)
     confidence: ConfidenceOut | None = None
     citations: list[Citation] = Field(default_factory=list)
     trace: list[TraceStepOut] = Field(default_factory=list)
