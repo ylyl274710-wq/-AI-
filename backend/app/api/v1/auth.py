@@ -40,7 +40,8 @@ def register(payload: RegisterIn, db: Session = Depends(get_db)) -> User:
 
 @router.post("/login", response_model=TokenOut)
 def login(payload: LoginIn, db: Session = Depends(get_db)) -> TokenOut:
-    user = db.scalar(select(User).where(User.username == payload.username))
+    user = db.scalar(select(User).where(User.username == payload.username,
+                                       User.deleted_at.is_(None)))
     # ★ 用户不存在与密码错误返回同一句话，避免被用来枚举账号
     if user is None or not verify_password(payload.password,
                                           user.hashed_password):

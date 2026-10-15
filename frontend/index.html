@@ -6,12 +6,14 @@
 <title>农事助手 · 病虫害诊断</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232f7d4f'/><path d='M8 22c0-7 5-12 16-13 0 11-5 15-11 15-3 0-5-1-5-2z' fill='%23e8f5e9'/></svg>" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/workspace.css" />
 </head>
 <body>
 
 <!-- ==================== 登录 ==================== -->
 <div class="gate" id="gate" hidden>
   <div class="gate-card">
+    <div class="gate-eyebrow">AGRI · 农业智能工作台</div>
     <div class="brand">
       <div class="brand-mark">农</div>
       <div>
@@ -64,7 +66,7 @@
       </div>
     </div>
 
-    <nav class="nav" id="nav"></nav>
+    <div class="workspace-label">我的农事工作台 <span>每一份判断，都有依据</span></div>
 
     <div class="top-right">
       <button class="btn ghost sm" id="elderBtn" title="切换大字号，术语更简单">
@@ -77,6 +79,14 @@
       </div>
     </div>
   </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-brand"><span class="leaf-logo">↗</span><div>农事助手<small>AGRI WORKSPACE</small></div></div>
+    <div class="sidebar-caption">工作空间</div>
+    <nav class="nav" id="nav" aria-label="主导航"></nav>
+    <div class="sidebar-note"><span>从一片叶子开始</span><p>看见作物的变化，<br>让每一步农事更有把握。</p><a href="#/diagnose">开始一次诊断 ↗</a></div>
+    <div class="sidebar-footer">扎根田间 · 用心判断</div>
+  </aside>
 
   <!-- 降级提示条：后端能力不完整时必须让用户知道，不能藏在日志里 -->
   <div class="banner" id="banner" hidden></div>

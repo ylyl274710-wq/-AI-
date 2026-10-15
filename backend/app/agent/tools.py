@@ -107,7 +107,7 @@ class ToolRegistry:
 
         ctx.tool_calls.append({
             "node": state.value, "tool": name, "ok": False,
-            "error": str(last_err)[:200], "elapsed_ms": 0,
+            "error": "工具执行失败", "elapsed_ms": 0,
             "attempts": spec.max_retries + 1, "high_risk": spec.high_risk,
         })
         raise last_err if last_err else RuntimeError(f"工具 {name} 调用失败")

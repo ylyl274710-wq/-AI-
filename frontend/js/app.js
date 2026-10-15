@@ -98,7 +98,9 @@
     var items = navItems();
     var html = items.map(function (p) {
       return '<button class="nav-item" data-route="' + p.id + '">' +
-             ui.esc(p.label) + '</button>';
+             '<span class="nav-symbol" aria-hidden="true">' +
+             ({home:'◫', diagnose:'◎', chat:'☷', farm:'▦', pesticide:'◈', knowledge:'▤'}[p.id] || '·') +
+             '</span>' + ui.esc(p.label) + '<span class="nav-arrow">›</span></button>';
     }).join('');
     document.getElementById('nav').innerHTML = html;
 
@@ -126,6 +128,7 @@
   function go(id) {
     var page = Agri.pages[id] || Agri.pages.home;
     app.current = page.id;
+    document.getElementById('view').setAttribute('data-page', page.id);
     location.hash = '#/' + page.id;
     markNav(page.id);
     var view = document.getElementById('view');
@@ -168,15 +171,8 @@
          所以不能二选一。早先写成 `cfg.length ? A : B`，结果
          「对象存储不可用」后面跟着「去 .env 配 Key」—— 驴唇不对马嘴。
          现在各给各的指引。 */
-      var tails = [];
-      if (cfg.length) {
-        tails.push('配置类问题在 <code>.env</code> 里填好 API Key 后重启即可启用');
-      }
-      if (infra.length) {
-        tails.push('服务类问题执行 <code>python scripts/infra.py status</code> 查看');
-      }
       b.innerHTML = '<span>⚠️</span><span>' + ui.esc(msgs.join('；')) +
-        '。' + tails.join('；') + '。</span>';
+        '。部分功能受限，请联系管理员恢复服务。</span>';
       b.hidden = false;
     }).catch(function () { /* 健康检查失败不阻塞使用 */ });
   }

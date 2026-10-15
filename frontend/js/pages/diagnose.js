@@ -47,7 +47,7 @@
   function paint(el) {
     el.innerHTML =
       '<div class="page-head">' +
-        '<div><h1>拍张照片，我帮你看看</h1>' +
+        '<div><h1>作物诊断</h1>' +
         '<div class="sub">拍清楚一点，叶子正反面都拍上，判断会准很多</div></div>' +
       '</div>' +
 
@@ -57,7 +57,7 @@
             '<span class="tiny faint">最多 ' + cfg.maxImages + ' 张</span></div>' +
           '<div class="card-body">' +
             '<div class="drop" id="drop">' +
-              '<span class="big">📷</span>' +
+              '<span class="upload-mark" aria-hidden="true">＋</span>' +
               '<div class="strong">点这里选照片，或者把照片拖进来</div>' +
               '<div class="small muted mt-2">手机可以现拍。' +
                 '照片里的位置信息会自动去掉。</div>' +
@@ -135,7 +135,13 @@
     var drop = el.querySelector('#drop');
     var input = el.querySelector('#fileInput');
 
+    drop.setAttribute('role', 'button');
+    drop.setAttribute('tabindex', '0');
+    drop.setAttribute('aria-label', '选择作物照片');
     drop.addEventListener('click', function () { input.click(); });
+    drop.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); input.click(); }
+    });
     input.addEventListener('change', function () {
       addFiles(input.files);
       input.value = '';

@@ -11,7 +11,7 @@ import os
 from functools import lru_cache
 from pathlib import Path
 
-from pydantic import Field, field_validator
+from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent.parent
@@ -136,6 +136,18 @@ class Settings(BaseSettings):
     model_dir: Path = Field(default=PROJECT_ROOT / "models")
 
     # ------------------------------------------------------------------ #
+    @model_validator(mode="after")
+    def _production_security(self):
+        if self.env.lower() in {"prod", "production"}:
+            if self.debug:
+                raise ValueError("生产环境必须设置 DEBUG=false")
+            if (self.jwt_secret == "dev-only-change-me-in-production"
+                    or len(self.jwt_secret.encode("utf-8")) < 32):
+                raise ValueError("生产环境必须设置至少 32 字节的随机 JWT_SECRET")
+            if {"null", "*"}.intersection(self.cors_origin_list):
+                raise ValueError("生产环境 CORS_ORIGINS 不能包含 null 或 *")
+        return self
+
     @field_validator("llm_base_url", "embedding_base_url", "llm_fallback_base_url",
                      mode="before")
     @classmethod

@@ -21,18 +21,22 @@ from app.models.user import ROLE_ADMIN, ROLE_AGRONOMIST, User
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"{settings.api_prefix}/auth/token",
                                     auto_error=False)
 
-# bcrypt 单次最多处理 72 字节，超长密码先截断，否则会抛异常
+# bcrypt 最多处理 72 字节；拒绝超长密码，避免不同密码产生相同凭证。
 _BCRYPT_MAX_BYTES = 72
 
 
 def hash_password(plain: str) -> str:
-    raw = plain.encode("utf-8")[:_BCRYPT_MAX_BYTES]
+    raw = plain.encode("utf-8")
+    if len(raw) > _BCRYPT_MAX_BYTES:
+        raise ValueError("密码 UTF-8 编码不能超过 72 字节")
     return bcrypt.hashpw(raw, bcrypt.gensalt(rounds=12)).decode("utf-8")
 
 
 def verify_password(plain: str, hashed: str) -> bool:
     try:
-        raw = plain.encode("utf-8")[:_BCRYPT_MAX_BYTES]
+        raw = plain.encode("utf-8")
+        if len(raw) > _BCRYPT_MAX_BYTES:
+            return False
         return bcrypt.checkpw(raw, hashed.encode("utf-8"))
     except (ValueError, TypeError):
         return False
@@ -53,7 +57,8 @@ def create_access_token(user: User) -> str:
 def decode_token(token: str) -> dict:
     try:
         return jwt.decode(token, settings.jwt_secret,
-                          algorithms=[settings.jwt_algorithm])
+                          algorithms=[settings.jwt_algorithm],
+                          options={"require": ["sub", "iat", "exp"]})
     except jwt.ExpiredSignatureError:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "登录已过期，请重新登录")
     except jwt.PyJWTError:
@@ -65,7 +70,11 @@ def get_current_user(token: str | None = Depends(oauth2_scheme),
     if not token:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "未登录")
     payload = decode_token(token)
-    user = db.scalar(select(User).where(User.id == int(payload["sub"]),
+    try:
+        user_id = int(payload["sub"])
+    except (KeyError, ValueError, TypeError):
+        raise HTTPException(status.HTTP_401_UNAUTHORIZED, "登录凭证无效")
+    user = db.scalar(select(User).where(User.id == user_id,
                                         User.deleted_at.is_(None)))
     if not user or not user.is_active:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "账号不存在或已停用")

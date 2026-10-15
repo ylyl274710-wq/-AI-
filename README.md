@@ -2,7 +2,23 @@
 
 一个面向农户的病虫害智能诊断系统：拍照/描述症状 → 多模态识别 + RAG 检索 → 置信度闸门 → 规则引擎校验 → 流式回答。无 Key 也能完整跑通（全链路降级设计），配 Key 后 LLM / 视觉 / 天气自动切换真实服务。
 
-[![CI](https://github.com/USERNAME/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/USERNAME/REPO/actions/workflows/ci.yml) <!-- 推送到 GitHub 后把 USERNAME/REPO 换成实际仓库 -->
+[![CI](https://github.com/ylyl274710-wq/-AI-/actions/workflows/ci.yml/badge.svg)](https://github.com/ylyl274710-wq/-AI-/actions/workflows/ci.yml)
+
+## 项目预览
+
+面向 AI 应用开发的个人项目，覆盖模型接口接入、知识库检索、工具调用、业务规则、流式交互和数据落库。前端采用原生 JavaScript，无需 Node 构建；后端统一托管页面与 API。
+
+![新版农事工作台](frontend/tools/screenshots/redesign/1440-home.png)
+
+<details>
+<summary>查看诊断页与登录页</summary>
+
+![作物诊断](frontend/tools/screenshots/redesign/1440-diagnose.png)
+![登录页](frontend/tools/screenshots/redesign/login.png)
+
+</details>
+
+截图使用仓库内的演示接口样本，天气与服务降级状态按样本显示，不代表在线部署状态。本仓库提供源码，GitHub 仓库页面不运行 Python 后端。
 
 ## 量化指标（评测驱动迭代，非自评）
 
@@ -12,7 +28,7 @@
 | 检索评测集（36 条口语提问） | hit@1 **69%** / hit@3 **97%** | 基线 67%/81% → 别名映射 + 标题命中 + 语料扩充逐步量化提升 |
 | 知识库规模 | 101 病虫害条目 / 112 篇文档 / 119 chunk | 结构化发生条件（conditions）为风险计算与正文渲染的唯一事实来源 |
 | 专用识别模型 | **已训练并接入**：PlantVillage 39 类，验证集 acc 99.89%，ONNX CPU 推理 | 分类器强候选置顶与 VLM 双通道合并；逐类准确率报告见 models/ 训练产物 |
-| pytest 单元 + e2e | **34 项** | 切块不变量 / 改写映射 / 风险打分纯函数 + 5 条全链路脚本 |
+| pytest 非 e2e | **59 项通过** | 2026-10-15 本地验证；含新增安全回归，另 5 项 e2e 未在该次执行 |
 | 前端真实浏览器 e2e | 30 项 | Playwright + 系统 Chrome，真实填表/点击/截图 |
 | 各专项自检 | 切块 16 / 视觉接线 8 / 分类器接线 10 / 工具循环 6 | `backend/scripts/check_*.py`，均可独立运行 |
 | 对话能力 | 多轮记忆 + token 级流式 + LLM 自主调工具 | consult 路径 Function calling 循环，实测单次 278~519 个 delta |
@@ -37,6 +53,12 @@
 
 ## 快速开始
 
+建议使用 Python 3.12。需要先准备 PostgreSQL（启用 pgvector）；Redis、对象存储及外部模型有降级路径。仓库不包含数据库文件、基础设施二进制、API 密钥或模型权重。
+
+首次运行请把 `backend/.env.example` 复制为 `backend/.env`，按本机环境填写数据库连接；需要真实图片识别时，配置支持视觉输入的模型及 API Key。仅填写文本模型 Key 不代表视觉服务可用。
+
+以下便携基础设施流程针对 Windows，需自行准备 `_infra/` 下的 PostgreSQL/pgvector、Redis、MinIO 二进制。`scripts/infra.py` 不负责自动下载这些程序；中文路径场景可通过 `AGRI_INFRA_LINK` 设置本机可用的纯英文目录联接路径。
+
 ```bash
 # 1) 环境（Python 3.12）
 python -m venv .venv && .venv/Scripts/pip install -r backend/requirements.txt
@@ -44,23 +66,32 @@ python -m venv .venv && .venv/Scripts/pip install -r backend/requirements.txt
 # 2) 下载本地 Embedding 模型（约 92MB，无 Key 也能跑的前提）
 .venv/Scripts/python.exe scripts/fetch_embedding_model.py
 
-# 3) 初始化便携基础设施 + 种子数据（幂等，可重复执行）
-.venv/Scripts/python.exe backend/app/seed/runner.py
-
-# 4) 一键启动（PG / Redis / MinIO / 后端四合一，含看门狗与单实例锁）
+# 3) 初始化并启动已经准备好的便携基础设施
+.venv/Scripts/python.exe scripts/infra.py init
 .venv/Scripts/python.exe scripts/infra.py serve
+
+# 4) 在另一个终端初始化种子数据（幂等，可重复执行）
+.venv/Scripts/python.exe backend/app/seed/runner.py
 
 # 打开：http://127.0.0.1:8001/app/   （演示账号 demo / demo1234）
 ```
 
 在 `backend/.env` 填入 LLM Key（硅基流动）与和风天气 Key 后重启，诊断、视觉、天气自动切换真实服务；不填则全链路使用本地降级，**降级状态在 `/health` 与界面上可见**。
 
+如已自行部署数据库等服务，可跳过便携基础设施脚本，在完成配置后执行种子脚本，再从 `backend/` 目录运行：
+
+```bash
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8001
+```
+
+本地 ONNX 分类器是可选增强，权重未随源码上传，可参考 `scripts/train_pv_classifier.py` 自行训练。演示账号与配置样例中的密码仅用于本地演示；上线前更换凭证，设置 `ENV=production`、`DEBUG=false`、随机 `JWT_SECRET` 和明确的 CORS 来源。
+
 ## 核心设计决策（为什么这么做）
 
 1. **两种 Agent 形态并存**——诊断是确定的 9 节点 FSM（可观测性优先，节点级工具白名单，越权留痕）；
    咨询是 Function calling 工具循环（LLM 自主决定调天气/知识库/地块工具，只收集证据，回答仍走统一出口纪律）。
    确定性的流程用管线，开放的问题用工具循环——按问题性质选形态，而不是全盘倒向某一种。
-2. **置信度是算出来的，不是模型自报的**——`margin × agreement × coverage` 三个分量都可复算、可进评测；闸门 A 拦截时同样落库，保证「有多少问题没答上来」可统计。
+2. **置信度是算出来的，不是模型自报的**——`margin / agreement / coverage` 三分量加权 三个分量都可复算、可进评测；闸门 A 拦截时同样落库，保证「有多少问题没答上来」可统计。
 3. **降级必须可见**——天气/存储/LLM/分类器四条依赖各有降级路径，降级状态通过 `/health` 的 `storage`、天气的 `is_mock+caveat`、分类器的 `available` 显式暴露给前端，禁止「服务活着但功能全废却报 up」。
 4. **评测驱动**——检索质量由 36 条口语提问的评测集守护（`check_retrieval.py`），切块器有 16 条不变量（`check_chunker.py`），改任何一处先看评测再合入。
 5. **结构化 conditions 是唯一事实来源**——病害的温湿度/降雨阈值只写一份，风险打分与给农户看的正文都从它渲染，杜绝两处手写漂移。

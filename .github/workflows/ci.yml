@@ -41,9 +41,10 @@ jobs:
       - name: 块注释配平扫描
         working-directory: frontend
         run: node tools/scan-block-comments.mjs
-      - name: 前后端契约核对（路径与方法）
+      # 接口契约检查依赖运行中的后端，保留为本地集成检查。
+      - name: 前端运行时回归（离线接口样本）
         working-directory: frontend
-        run: node check-api-contract.mjs
+        run: node tools/check-frontend-runtime.cjs
       - name: DOM id 交叉核对
         working-directory: frontend
         run: node tools/check-dom-ids.mjs

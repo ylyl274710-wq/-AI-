@@ -224,9 +224,9 @@ async def run_tool_loop(ctx, db: Session,  # noqa: ANN001
                 err = ""
             except Exception as exc:  # noqa: BLE001
                 logger.warning("工具 %s 执行失败: %s", tc["name"], exc)
-                data = {"error": str(exc)[:200]}
+                data = {"error": "工具执行失败"}
                 ok = False
-                err = str(exc)[:200]
+                err = "工具执行失败"
             elapsed = int((time.monotonic() - t0) * 1000)
             ctx.tool_calls.append({"node": "tool_loop", "tool": tc["name"],
                                    "ok": ok, "elapsed_ms": elapsed,
@@ -252,9 +252,9 @@ async def run_tool_loop(ctx, db: Session,  # noqa: ANN001
             err = ""
         except Exception as exc:  # noqa: BLE001
             logger.warning("兜底检索失败: %s", exc)
-            data = {"error": str(exc)[:200]}
+            data = {"error": "检索暂不可用"}
             ok = False
-            err = str(exc)[:200]
+            err = "检索暂不可用"
         elapsed = int((time.monotonic() - t0) * 1000)
         ctx.tool_calls.append({"node": "tool_loop", "tool": "search_knowledge",
                                "ok": ok, "elapsed_ms": elapsed,

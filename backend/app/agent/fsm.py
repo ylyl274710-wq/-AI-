@@ -122,15 +122,15 @@ class AgriAgent:
                 # 走到这里说明降级逻辑有漏，记录后继续用兜底推进
                 logger.warning("节点 %s LLM 不可用: %s", node.value, exc)
                 ctx.degraded = True
-                ctx.errors.append(f"{node.value}: {exc}")
+                ctx.errors.append(f"{node.value}: 模型暂不可用")
                 ctx.add_trace(node.value, status="error",
                               detail="模型不可用，走降级分支",
                               elapsed_ms=int((time.monotonic() - t0) * 1000))
                 nxt = self._fallback_next(node)
             except Exception as exc:  # noqa: BLE001
                 logger.exception("节点 %s 执行异常", node.value)
-                ctx.errors.append(f"{node.value}: {exc}")
-                ctx.add_trace(node.value, status="error", detail=str(exc)[:200],
+                ctx.errors.append(f"{node.value}: 执行失败")
+                ctx.add_trace(node.value, status="error", detail="执行失败，请稍后重试",
                               elapsed_ms=int((time.monotonic() - t0) * 1000))
                 nxt = self._fallback_next(node)
             else:
@@ -353,7 +353,7 @@ class AgriAgent:
         except LLMUnavailable as exc:
             logger.warning("工具循环不可用，consult 降级为固定检索: %s", exc)
             ctx.degraded = True
-            ctx.errors.append(f"tool_loop: {exc}")
+            ctx.errors.append("tool_loop: 模型暂不可用")
             return await self._node_retrieve(ctx)
         logger.info("工具循环完成：rounds=%s evidence=%s calls=%s",
                     out["rounds"], len(out["evidence"]),
@@ -591,7 +591,7 @@ class AgriAgent:
         except Exception as exc:  # noqa: BLE001
             # 文档第七章：天气接口失败不影响基础诊断，只关闭天气增强
             logger.warning("天气风险计算失败，关闭该增强: %s", exc)
-            ctx.errors.append(f"weather: {exc}")
+            ctx.errors.append("weather: 天气服务暂不可用")
 
         if settings.llm_enabled:
             try:
@@ -933,7 +933,7 @@ class AgriAgent:
                 proc = imaging.process_upload(raw, strip_exif=settings.strip_exif)
             except imaging.ImageProcessError as exc:
                 logger.warning("第 %d 张图片处理失败: %s", i + 1, exc)
-                ctx.errors.append(f"image[{i}]: {exc}")
+                ctx.errors.append(f"image[{i}]: 图片处理失败")
                 continue
             key = storage.build_key("uploads", f"d{rec.id}", ".jpg")
             thumb_key = storage.build_key("thumbnails", f"d{rec.id}", ".jpg")
@@ -970,5 +970,5 @@ class AgriAgent:
             ctx.tasks_created = ids or []
         except Exception as exc:  # noqa: BLE001
             logger.warning("创建农事任务失败: %s", exc)
-            ctx.errors.append(f"remind: {exc}")
+            ctx.errors.append("remind: 创建农事任务失败")
         return AgentState.DONE

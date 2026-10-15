@@ -44,8 +44,20 @@
               '<div class="sub">' + esc(ui.fmtDate(new Date())) +
                 '　·　今天地里的情况都在下面</div>' +
             '</div>' +
-            '<button class="btn primary lg" id="goDiag">拍照片看看</button>' +
           '</div>' +
+
+          '<section class="field-hero"><div class="hero-copy">' +
+            '<span class="hero-kicker">你的田间 AI 助手</span>' +
+            '<h2>读懂一片叶子，<br>照顾一整片田。</h2>' +
+            '<p>拍照、描述、查证。把作物的变化，变成有依据的下一步。</p>' +
+            '<button class="btn primary lg" id="goDiag">开始拍照诊断 <span aria-hidden="true">↗</span></button>' +
+            '<div class="hero-foot">图片识别 · 知识检索 · 用药规则校验</div></div>' +
+            '<div class="hero-art" aria-hidden="true"><img src="assets/field.svg" alt="" /></div></section>' +
+          '<div class="overview-metrics">' +
+            metric((ov.farms || []).length, '已登记农场', '▦', '个') +
+            metric((ov.current_crops || []).length, '当前作物', '↗', '种植记录') +
+            metric((ov.pending_tasks || []).length, '待办农事', '◷', '项') +
+            metric((ov.recent_diagnoses || []).length, '近期诊断', '◎', '条') + '</div>' +
 
           '<div class="grid two">' +
             weatherCard(ov.weather) +
@@ -73,6 +85,12 @@
       });
     }
   };
+
+  function metric(value, label, symbol, unit) {
+    return '<div class="overview-metric"><span class="metric-icon" aria-hidden="true">' + symbol +
+      '</span><div><span class="metric-label">' + label + '</span><strong>' + value +
+      '<small> ' + unit + '</small></strong></div></div>';
+  }
 
   /* ---------------- 天气 ---------------- */
 
@@ -182,7 +200,7 @@
     if (!tasks || !tasks.length) {
       body = ui.empty('暂时没有待办的事。诊断之后系统会自动帮你排复查。', '📋');
     } else {
-      body = '<div class="list">' + tasks.map(function (t) {
+      body = '<div class="list task-scroll" tabindex="0" aria-label="待办农事列表">' + tasks.map(function (t) {
         var overdue = t.due_date && new Date(t.due_date) < new Date(new Date().toDateString());
         return '<div class="item">' +
           '<input type="checkbox" data-task="' + t.id + '" style="margin-top:5px" />' +

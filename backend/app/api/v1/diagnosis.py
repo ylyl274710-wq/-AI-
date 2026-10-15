@@ -31,6 +31,7 @@ from app.core.security import get_current_user
 logger = logging.getLogger(__name__)
 from app.models.diagnosis import DiagnosisImage, DiagnosisRecord
 from app.models.user import User
+from app.models.farm import Farm, Field
 from app.schemas import (CandidateOut, Citation, ConfidenceOut, DiagnoseOut,
                          TraceStepOut)
 
@@ -71,7 +72,7 @@ async def _read_images(files: list[UploadFile]) -> list[bytes]:
     for f in files:
         if not f.filename:
             continue
-        raw = await f.read()
+        raw = await f.read(MAX_IMAGE_BYTES + 1)
         if not raw:
             continue
         if len(raw) > MAX_IMAGE_BYTES:
@@ -80,6 +81,16 @@ async def _read_images(files: list[UploadFile]) -> list[bytes]:
                 f"图片 {f.filename} 超过 {MAX_IMAGE_BYTES // 1024 // 1024}MB")
         out.append(raw)
     return out
+
+
+def _validate_field(db: Session, user: User, field_id: int | None) -> None:
+    if field_id is None:
+        return
+    owned = db.scalar(select(Field.id).join(Farm, Field.farm_id == Farm.id)
+                      .where(Field.id == field_id, Farm.owner_id == user.id,
+                             Field.deleted_at.is_(None), Farm.deleted_at.is_(None)))
+    if owned is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "地块不存在")
 
 
 def _to_out(ctx: AgentContext) -> DiagnoseOut:
@@ -198,6 +209,7 @@ async def diagnose(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),
 ) -> DiagnoseOut:
+    _validate_field(db, user, field_id)
     images = await _read_images(files)
     if not images and not (query or "").strip():
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -240,6 +252,7 @@ async def diagnose_stream(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),
 ) -> StreamingResponse:
+    _validate_field(db, user, field_id)
     images = await _read_images(files)
     if not images and not (query or "").strip():
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -292,7 +305,8 @@ async def diagnose_stream(
         try:
             await task
         except Exception as exc:  # noqa: BLE001
-            yield _sse("error", {"message": f"诊断过程出错：{exc}"})
+            logger.exception("流式诊断失败")
+            yield _sse("error", {"message": "诊断过程出错，请稍后重试"})
             return
 
         payload = _to_out(ctx).model_dump(mode="json")

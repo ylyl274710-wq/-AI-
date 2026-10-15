@@ -45,6 +45,13 @@ class RegisterIn(BaseModel):
     phone: str = Field(default="", max_length=20)
     city: str = Field(default="", max_length=32)
 
+    @field_validator("password")
+    @classmethod
+    def _password_bytes(cls, v: str) -> str:
+        if len(v.encode("utf-8")) > 72:
+            raise ValueError("密码 UTF-8 编码不能超过 72 字节")
+        return v
+
     @field_validator("username")
     @classmethod
     def _username_charset(cls, v: str) -> str:

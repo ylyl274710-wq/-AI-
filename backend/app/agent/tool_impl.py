@@ -37,19 +37,22 @@ async def load_farm_context(*, ctx: AgentContext, db: Session, **_) -> dict:
     if not ctx.user_id:
         return data
 
-    field = db.get(Field, ctx.field_id) if ctx.field_id else None
-    if field is None:
-        field = db.scalar(
-            select(Field).join(Farm, Field.farm_id == Farm.id)
-            .where(Farm.owner_id == ctx.user_id, Field.deleted_at.is_(None))
-            .order_by(Field.id))
+    stmt = (select(Field).join(Farm, Field.farm_id == Farm.id)
+            .where(Farm.owner_id == ctx.user_id, Field.deleted_at.is_(None),
+                   Farm.deleted_at.is_(None)))
+    if ctx.field_id is not None:
+        stmt = stmt.where(Field.id == ctx.field_id)
+    field = db.scalar(stmt.order_by(Field.id))
+    if ctx.field_id is not None and field is None:
+        raise ValueError("地块不存在或无权访问")
     if field:
         data["field_id"] = field.id
         data["field_name"] = field.name
         data["farm_id"] = field.farm_id
         grow = db.scalar(select(CropGrowthRecord).where(
             CropGrowthRecord.field_id == field.id,
-            CropGrowthRecord.is_current.is_(True)))
+            CropGrowthRecord.is_current.is_(True),
+            CropGrowthRecord.deleted_at.is_(None)))
         if grow:
             data["growth_stage"] = grow.stage
             data["crop_name"] = grow.crop.name if grow.crop else None

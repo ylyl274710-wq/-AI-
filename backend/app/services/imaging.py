@@ -47,6 +47,8 @@ def process_upload(raw: bytes, *, strip_exif: bool = True) -> ProcessedImage:
         raise ImageProcessError("图片内容为空")
     try:
         with Image.open(io.BytesIO(raw)) as img:
+            if img.width * img.height > Image.MAX_IMAGE_PIXELS:
+                raise ImageProcessError("图片像素数量超过安全上限")
             img.load()
             had_exif = bool(img.getexif())
             had_gps = False
